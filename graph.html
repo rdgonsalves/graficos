@@ -1,0 +1,711 @@
+<!-- Styles -->
+<style>
+#chartdiv {
+  width: 100%;
+  height: 500px;
+}
+
+</style>
+
+<!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+<!-- Chart code -->
+<script>
+
+
+
+
+am4core.ready(function() {
+
+// Themes begin
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+// Create chart instance
+var chart = am4core.create("chartdiv", am4charts.XYChart);
+
+chart.colors.step = 2;
+chart.maskBullets = false;
+
+const urlParams = new URLSearchParams(window.location.search);
+const pesquisa = urlParams.get('orgao');
+const valor = urlParams.get('valor');
+const escala = urlParams.get('escala');
+
+//pesquisa = "Gabinete";
+//valor = "aut_inicial";
+
+titulos = [{"name":"aut_inicial","texto": "Despesa autorizada inicial"},
+            {"name":"aut_final","texto": "Despesas Autorizada Final"},
+            {"name":"poder_gasto","texto": "Poder de gasto"},
+            {"name":"empenhada","texto": "Despesa empenhada"},
+            {"name":"liquidada","texto": "Despesa liquidada"},
+            {"name":"paga","texto": "despesa paga"}];
+for(i = 0;i<titulos.length;i++){
+    if(titulos[i].name==valor){
+        titulo = titulos[i];
+    }
+}
+
+dados = {
+  "despesas": [
+    {
+      "orgao": "1601 - GABINETE DO SECRETARIO MUNICIPAL DE EDUCACAO",
+      "ano": "2020",
+      "cre": "Gabinete",
+      "aut_inicial": "  6,553,797,249.00 ",
+      "aut_final": "  6,609,882,514.55 ",
+      "poder_gasto": "  6,550,617,362.02 ",
+      "empenhada": "  6,387,766,036.15 ",
+      "liquidada": "  6,306,202,711.57 ",
+      "paga": "  5,421,195,644.70 "
+    },
+    {
+      "orgao": "1602 - PRIMEIRA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2020",
+      "cre": "1ª",
+      "aut_inicial": "  42,639,599.00 ",
+      "aut_final": "  33,723,627.26 ",
+      "poder_gasto": "  31,406,593.26 ",
+      "empenhada": "  25,142,157.78 ",
+      "liquidada": "  17,851,289.55 ",
+      "paga": "  15,074,560.33 "
+    },
+    {
+      "orgao": "1603 - SEGUNDA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2020",
+      "cre": "2ª",
+      "aut_inicial": "  69,689,544.00 ",
+      "aut_final": "  80,488,024.75 ",
+      "poder_gasto": "  66,299,020.75 ",
+      "empenhada": "  60,619,886.23 ",
+      "liquidada": "  49,930,608.11 ",
+      "paga": "  42,413,700.56 "
+    },
+    {
+      "orgao": "1604 - TERCEIRA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2020",
+      "cre": "3ª",
+      "aut_inicial": "  67,832,715.00 ",
+      "aut_final": "  68,896,375.22 ",
+      "poder_gasto": "  62,993,261.22 ",
+      "empenhada": "  55,535,679.73 ",
+      "liquidada": "  47,454,740.48 ",
+      "paga": "  44,178,359.04 "
+    },
+    {
+      "orgao": "1605 - QUARTA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2020",
+      "cre": "4ª",
+      "aut_inicial": "  95,117,134.00 ",
+      "aut_final": "  88,487,839.26 ",
+      "poder_gasto": "  74,594,021.26 ",
+      "empenhada": "  63,716,319.04 ",
+      "liquidada": "  53,522,443.03 ",
+      "paga": "  48,865,166.69 "
+    },
+    {
+      "orgao": "1606 - QUINTA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2020",
+      "cre": "5ª",
+      "aut_inicial": "  67,800,559.00 ",
+      "aut_final": "  48,962,575.77 ",
+      "poder_gasto": "  41,236,335.77 ",
+      "empenhada": "  33,362,607.81 ",
+      "liquidada": "  26,713,825.63 ",
+      "paga": "  24,357,076.27 "
+    },
+    {
+      "orgao": "1607 - SEXTA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2020",
+      "cre": "6ª",
+      "aut_inicial": "  59,394,434.00 ",
+      "aut_final": "  48,306,617.65 ",
+      "poder_gasto": "  43,609,999.65 ",
+      "empenhada": "  35,193,069.80 ",
+      "liquidada": "  28,320,130.23 ",
+      "paga": "  24,886,697.85 "
+    },
+    {
+      "orgao": "1608 - SETIMA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2020",
+      "cre": "7ª",
+      "aut_inicial": "  73,878,689.00 ",
+      "aut_final": "  67,239,114.24 ",
+      "poder_gasto": "  61,649,109.24 ",
+      "empenhada": "  54,261,789.47 ",
+      "liquidada": "  40,914,702.11 ",
+      "paga": "  35,178,515.39 "
+    },
+    {
+      "orgao": "1609 - OITAVA COORDENADORIA REGINAL DE EDUCACAO",
+      "ano": "2020",
+      "cre": "8ª",
+      "aut_inicial": "  97,729,169.00 ",
+      "aut_final": "  80,152,419.54 ",
+      "poder_gasto": "  73,504,965.54 ",
+      "empenhada": "  57,690,203.31 ",
+      "liquidada": "  44,190,266.86 ",
+      "paga": "  39,032,407.04 "
+    },
+    {
+      "orgao": "1610 - NONA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2020",
+      "cre": "9ª",
+      "aut_inicial": "  102,022,212.00 ",
+      "aut_final": "  79,032,813.19 ",
+      "poder_gasto": "  62,669,326.19 ",
+      "empenhada": "  57,846,754.93 ",
+      "liquidada": "  43,358,823.89 ",
+      "paga": "  41,641,650.84 "
+    },
+    {
+      "orgao": "1611 - DECIMA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2020",
+      "cre": "10ª",
+      "aut_inicial": "  136,554,404.00 ",
+      "aut_final": "  142,798,903.80 ",
+      "poder_gasto": "  120,120,287.80 ",
+      "empenhada": "  103,045,549.92 ",
+      "liquidada": "  96,269,424.45 ",
+      "paga": "  87,140,662.45 "
+    },
+    {
+      "orgao": "1615 - EDUCAÇÃO FÍSICA NA EDUCAÇÃO BÁSICA",
+      "ano": "2020",
+      "cre": "Ed.Física na Ed.Básica",
+      "aut_inicial": "  33,568,116.00 ",
+      "aut_final": "  42,083,608.00 ",
+      "poder_gasto": "  42,083,608.00 ",
+      "empenhada": "  42,006,037.12 ",
+      "liquidada": "  31,164,109.59 ",
+      "paga": "  31,164,109.59 "
+    },
+    {
+      "orgao": "1616 - DECIMA PRIMEIRA COORDENADORIA REGIONAL DE EDUCAÇÃO - E/SUBE/11a.CRE",
+      "ano": "2020",
+      "cre": "11ª",
+      "aut_inicial": "  27,538,356.00 ",
+      "aut_final": "  21,104,924.01 ",
+      "poder_gasto": "  19,937,385.01 ",
+      "empenhada": "  15,523,457.69 ",
+      "liquidada": "  13,136,384.80 ",
+      "paga": "  12,619,262.43 "
+    },
+    {
+      "orgao": "1601 - GABINETE DO SECRETARIO MUNICIPAL DE EDUCACAO",
+      "ano": "2019",
+      "cre": "Gabinete",
+      "aut_inicial": "  5,952,757,393.00 ",
+      "aut_final": "  6,052,238,117.88 ",
+      "poder_gasto": "  6,048,854,543.88 ",
+      "empenhada": "  5,981,392,421.62 ",
+      "liquidada": "  5,972,809,836.27 ",
+      "paga": "  5,501,095,638.36 "
+    },
+    {
+      "orgao": "1602 - PRIMEIRA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2019",
+      "cre": "1ª",
+      "aut_inicial": "  39,287,565.00 ",
+      "aut_final": "  45,465,063.59 ",
+      "poder_gasto": "  45,465,063.59 ",
+      "empenhada": "  43,822,018.67 ",
+      "liquidada": "  42,100,889.83 ",
+      "paga": "  35,654,798.19 "
+    },
+    {
+      "orgao": "1603 - SEGUNDA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2019",
+      "cre": "2ª",
+      "aut_inicial": "  64,810,933.00 ",
+      "aut_final": "  97,465,650.96 ",
+      "poder_gasto": "  97,465,650.96 ",
+      "empenhada": "  94,320,928.37 ",
+      "liquidada": "  90,730,579.36 ",
+      "paga": "  76,913,628.06 "
+    },
+    {
+      "orgao": "1604 - TERCEIRA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2019",
+      "cre": "3ª",
+      "aut_inicial": "  65,828,040.00 ",
+      "aut_final": "  87,409,837.58 ",
+      "poder_gasto": "  87,409,837.58 ",
+      "empenhada": "  83,203,113.30 ",
+      "liquidada": "  83,067,980.50 ",
+      "paga": "  68,470,040.19 "
+    },
+    {
+      "orgao": "1605 - QUARTA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2019",
+      "cre": "4ª",
+      "aut_inicial": "  80,088,296.00 ",
+      "aut_final": "  104,320,638.92 ",
+      "poder_gasto": "  104,320,638.92 ",
+      "empenhada": "  100,451,272.96 ",
+      "liquidada": "  98,482,998.35 ",
+      "paga": "  82,552,974.40 "
+    },
+    {
+      "orgao": "1606 - QUINTA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2019",
+      "cre": "5ª",
+      "aut_inicial": "  62,576,757.00 ",
+      "aut_final": "  64,811,314.54 ",
+      "poder_gasto": "  64,811,314.54 ",
+      "empenhada": "  61,161,232.37 ",
+      "liquidada": "  61,110,543.62 ",
+      "paga": "  50,189,004.36 "
+    },
+    {
+      "orgao": "1607 - SEXTA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2019",
+      "cre": "6ª",
+      "aut_inicial": "  54,478,271.00 ",
+      "aut_final": "  64,282,247.44 ",
+      "poder_gasto": "  64,282,247.44 ",
+      "empenhada": "  60,209,602.13 ",
+      "liquidada": "  58,867,015.90 ",
+      "paga": "  48,725,525.72 "
+    },
+    {
+      "orgao": "1608 - SETIMA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2019",
+      "cre": "7ª",
+      "aut_inicial": "  75,424,924.00 ",
+      "aut_final": "  106,889,264.11 ",
+      "poder_gasto": "  106,889,264.11 ",
+      "empenhada": "  102,407,644.86 ",
+      "liquidada": "  99,019,760.10 ",
+      "paga": "  84,852,489.43 "
+    },
+    {
+      "orgao": "1609 - OITAVA COORDENADORIA REGINAL DE EDUCACAO",
+      "ano": "2019",
+      "cre": "8ª",
+      "aut_inicial": "  87,380,530.00 ",
+      "aut_final": "  112,758,865.54 ",
+      "poder_gasto": "  112,758,865.54 ",
+      "empenhada": "  107,491,509.71 ",
+      "liquidada": "  103,584,930.19 ",
+      "paga": "  83,559,590.15 "
+    },
+    {
+      "orgao": "1610 - NONA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2019",
+      "cre": "9ª",
+      "aut_inicial": "  100,217,591.00 ",
+      "aut_final": "  127,007,344.09 ",
+      "poder_gasto": "  127,007,344.09 ",
+      "empenhada": "  120,019,902.02 ",
+      "liquidada": "  117,671,781.14 ",
+      "paga": "  96,974,061.82 "
+    },
+    {
+      "orgao": "1611 - DECIMA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2019",
+      "cre": "10ª",
+      "aut_inicial": "  142,712,213.00 ",
+      "aut_final": "  198,451,685.94 ",
+      "poder_gasto": "  198,451,685.94 ",
+      "empenhada": "  190,898,317.09 ",
+      "liquidada": "  187,240,348.07 ",
+      "paga": "  152,168,278.03 "
+    },
+    {
+      "orgao": "1615 - EDUCAÇÃO FÍSICA NA EDUCAÇÃO BÁSICA",
+      "ano": "2019",
+      "cre": "Ed.Física na Ed.Básica",
+      "aut_inicial": "  36,835,256.00 ",
+      "aut_final": "  39,867,571.30 ",
+      "poder_gasto": "  39,867,571.30 ",
+      "empenhada": "  39,867,571.30 ",
+      "liquidada": "  29,486,258.99 ",
+      "paga": "  24,145,533.55 "
+    },
+    {
+      "orgao": "1616 - DECIMA PRIMEIRA COORDENADORIA REGIONAL DE EDUCAÇÃO - E/SUBE/11a.CRE",
+      "ano": "2019",
+      "cre": "11ª",
+      "aut_inicial": "  21,287,021.00 ",
+      "aut_final": "  27,846,802.86 ",
+      "poder_gasto": "  27,846,802.86 ",
+      "empenhada": "  26,145,996.95 ",
+      "liquidada": "  26,135,408.06 ",
+      "paga": "  22,408,689.06 "
+    },
+    {
+      "orgao": "1601 - GABINETE DO SECRETARIO MUNICIPAL DE EDUCACAO",
+      "ano": "2018",
+      "cre": "Gabinete",
+      "aut_inicial": "  5,896,650,574.00 ",
+      "aut_final": "  6,005,181,992.94 ",
+      "poder_gasto": "  5,985,448,356.00 ",
+      "empenhada": "  5,340,231,289.79 ",
+      "liquidada": "  5,334,373,858.78 ",
+      "paga": "  4,922,649,728.30 "
+    },
+    {
+      "orgao": "1602 - PRIMEIRA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2018",
+      "cre": "1ª",
+      "aut_inicial": "  40,076,719.00 ",
+      "aut_final": "  51,442,367.75 ",
+      "poder_gasto": "  51,439,533.75 ",
+      "empenhada": "  42,562,252.09 ",
+      "liquidada": "  40,283,017.34 ",
+      "paga": "  35,695,268.29 "
+    },
+    {
+      "orgao": "1603 - SEGUNDA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2018",
+      "cre": "2ª",
+      "aut_inicial": "  62,285,210.00 ",
+      "aut_final": "  93,338,556.77 ",
+      "poder_gasto": "  93,333,722.77 ",
+      "empenhada": "  88,110,153.18 ",
+      "liquidada": "  86,897,545.79 ",
+      "paga": "  78,875,797.10 "
+    },
+    {
+      "orgao": "1604 - TERCEIRA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2018",
+      "cre": "3ª",
+      "aut_inicial": "  62,203,509.00 ",
+      "aut_final": "  84,749,505.02 ",
+      "poder_gasto": "  84,744,837.02 ",
+      "empenhada": "  78,858,596.00 ",
+      "liquidada": "  73,978,658.37 ",
+      "paga": "  68,982,652.39 "
+    },
+    {
+      "orgao": "1605 - QUARTA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2018",
+      "cre": "4ª",
+      "aut_inicial": "  72,324,419.00 ",
+      "aut_final": "  104,295,308.00 ",
+      "poder_gasto": "  104,292,474.00 ",
+      "empenhada": "  101,632,092.13 ",
+      "liquidada": "  95,899,586.42 ",
+      "paga": "  89,654,842.05 "
+    },
+    {
+      "orgao": "1606 - QUINTA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2018",
+      "cre": "5ª",
+      "aut_inicial": "  58,962,474.00 ",
+      "aut_final": "  71,999,414.99 ",
+      "poder_gasto": "  71,997,414.99 ",
+      "empenhada": "  65,076,803.51 ",
+      "liquidada": "  58,217,752.42 ",
+      "paga": "  55,528,861.77 "
+    },
+    {
+      "orgao": "1607 - SEXTA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2018",
+      "cre": "6ª",
+      "aut_inicial": "  52,306,231.00 ",
+      "aut_final": "  68,596,729.86 ",
+      "poder_gasto": "  68,594,729.86 ",
+      "empenhada": "  60,107,223.55 ",
+      "liquidada": "  55,251,328.82 ",
+      "paga": "  50,146,793.21 "
+    },
+    {
+      "orgao": "1608 - SETIMA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2018",
+      "cre": "7ª",
+      "aut_inicial": "  73,026,021.00 ",
+      "aut_final": "  110,628,565.70 ",
+      "poder_gasto": "  110,622,897.70 ",
+      "empenhada": "  106,716,524.63 ",
+      "liquidada": "  102,153,263.88 ",
+      "paga": "  93,388,036.15 "
+    },
+    {
+      "orgao": "1609 - OITAVA COORDENADORIA REGINAL DE EDUCACAO",
+      "ano": "2018",
+      "cre": "8ª",
+      "aut_inicial": "  84,406,917.00 ",
+      "aut_final": "  122,105,435.49 ",
+      "poder_gasto": "  122,101,435.49 ",
+      "empenhada": "  106,820,130.94 ",
+      "liquidada": "  98,149,624.28 ",
+      "paga": "  87,496,937.54 "
+    },
+    {
+      "orgao": "1610 - NONA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2018",
+      "cre": "9ª",
+      "aut_inicial": "  94,000,490.00 ",
+      "aut_final": "  131,347,778.64 ",
+      "poder_gasto": "  131,343,944.64 ",
+      "empenhada": "  127,907,685.45 ",
+      "liquidada": "  120,662,596.76 ",
+      "paga": "  107,222,334.07 "
+    },
+    {
+      "orgao": "1611 - DECIMA COORDENADORIA REGIONAL DE EDUCACAO",
+      "ano": "2018",
+      "cre": "10ª",
+      "aut_inicial": "  138,417,922.00 ",
+      "aut_final": "  192,715,353.67 ",
+      "poder_gasto": "  192,711,519.67 ",
+      "empenhada": "  189,565,426.90 ",
+      "liquidada": "  181,848,737.24 ",
+      "paga": "  165,039,315.80 "
+    },
+    {
+      "orgao": "1615 - EDUCAÇÃO FÍSICA NA EDUCAÇÃO BÁSICA",
+      "ano": "2018",
+      "cre": "Ed.Física na Ed.Básica",
+      "aut_inicial": "  49,390,308.00 ",
+      "aut_final": "  49,390,308.00 ",
+      "poder_gasto": "  49,390,308.00 ",
+      "empenhada": "  38,792,526.98 ",
+      "liquidada": "  28,695,748.61 ",
+      "paga": "  25,975,804.60 "
+    },
+    {
+      "orgao": "1616 - DECIMA PRIMEIRA COORDENADORIA REGIONAL DE EDUCAÇÃO - E/SUBE/11a.CRE",
+      "ano": "2018",
+      "cre": "11ª",
+      "aut_inicial": "  20,793,291.00 ",
+      "aut_final": "  28,034,969.44 ",
+      "poder_gasto": "  28,032,135.44 ",
+      "empenhada": "  25,809,417.20 ",
+      "liquidada": "  23,930,745.30 ",
+      "paga": "  22,738,344.17 "
+    }
+  ]
+}
+
+
+dadosGrafico = [];
+for(i = dados.despesas.length -1;i>=0;i--){
+    if(dados.despesas[i].cre==pesquisa){
+        valorNum = dados.despesas[i][valor].split(',').join('');
+        escalaNum = 0;
+        if(escala!==null){
+            escalaNum = Number(escala);
+            console.log(typeof escalaNum);
+            console.log(typeof valorNum);
+        }
+        console.log(escalaNum);
+        console.log(valorNum);
+
+        if(escalaNum>0){
+            valorNum = valorNum / escalaNum;
+            console.log("escala");
+            console.log(valorNum);
+
+        }
+        
+        row = {"ano":dados.despesas[i].ano,"valor":valorNum};
+        dadosGrafico.push(row);
+    }
+}
+
+
+chart.data = dadosGrafico;
+
+// Add data
+/*chart.data = [{
+    "date": "2012-01-01",
+    "distance": 227,
+    "townName": "New York",
+    "townName2": "New York",
+    "townSize": 12,
+    "latitude": 40.71,
+    "duration": 408
+}, {
+    "date": "2012-01-02",
+    "distance": 371,
+    "townName": "Washington",
+    "townSize": 7,
+    "latitude": 38.89,
+    "duration": 482
+}, {
+    "date": "2012-01-03",
+    "distance": 433,
+    "townName": "Wilmington",
+    "townSize": 3,
+    "latitude": 34.22,
+    "duration": 562
+}, {
+    "date": "2012-01-04",
+    "distance": 345,
+    "townName": "Jacksonville",
+    "townSize": 3.5,
+    "latitude": 30.35,
+    "duration": 379
+}, {
+    "date": "2012-01-05",
+    "distance": 480,
+    "townName": "Miami",
+    "townName2": "Miami",
+    "townSize": 5,
+    "latitude": 25.83,
+    "duration": 501
+}, {
+    "date": "2012-01-06",
+    "distance": 386,
+    "townName": "Tallahassee",
+    "townSize": 3.5,
+    "latitude": 30.46,
+    "duration": 443
+}, {
+    "date": "2012-01-07",
+    "distance": 348,
+    "townName": "New Orleans",
+    "townSize": 5,
+    "latitude": 29.94,
+    "duration": 405
+}, {
+    "date": "2012-01-08",
+    "distance": 238,
+    "townName": "Houston",
+    "townName2": "Houston",
+    "townSize": 8,
+    "latitude": 29.76,
+    "duration": 309
+}, {
+    "date": "2012-01-09",
+    "distance": 218,
+    "townName": "Dalas",
+    "townSize": 8,
+    "latitude": 32.8,
+    "duration": 287
+}, {
+    "date": "2012-01-10",
+    "distance": 349,
+    "townName": "Oklahoma City",
+    "townSize": 5,
+    "latitude": 35.49,
+    "duration": 485
+}, {
+    "date": "2012-01-11",
+    "distance": 603,
+    "townName": "Kansas City",
+    "townSize": 5,
+    "latitude": 39.1,
+    "duration": 890
+}, {
+    "date": "2012-01-12",
+    "distance": 534,
+    "townName": "Denver",
+    "townName2": "Denver",
+    "townSize": 9,
+    "latitude": 39.74,
+    "duration": 810
+}, {
+    "date": "2012-01-13",
+    "townName": "Salt Lake City",
+    "townSize": 6,
+    "distance": 425,
+    "duration": 670,
+    "latitude": 40.75,
+    "dashLength": 8,
+    "alpha": 0.4
+}, {
+    "date": "2012-01-14",
+    "latitude": 36.1,
+    "duration": 470,
+    "townName": "Las Vegas",
+    "townName2": "Las Vegas"
+}, {
+    "date": "2012-01-15"
+}, {
+    "date": "2012-01-16"
+}, {
+    "date": "2012-01-17"
+}];
+*/
+// Create axes
+var anoAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+anoAxis.dataFields.category="ano";
+//anoAxis.renderer.grid.template.location = 0;
+//anoAxis.renderer.minGridDistance = 50;
+//anoAxis.renderer.grid.template.disabled = true;
+//anoAxis.renderer.fullWidthTooltip = true;
+
+
+//var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+//dateAxis.renderer.grid.template.location = 0;
+//dateAxis.renderer.minGridDistance = 50;
+//dateAxis.renderer.grid.template.disabled = true;
+//dateAxis.renderer.fullWidthTooltip = true;
+
+//var distanceAxis = chart.yAxes.push(new am4charts.ValueAxis());
+//distanceAxis.title.text = "Distance";
+//distanceAxis.renderer.grid.template.disabled = true;
+var valorAxis = chart.yAxes.push(new am4charts.ValueAxis());
+valorAxis.title.text = "Valor";
+
+//var durationAxis = chart.yAxes.push(new am4charts.DurationAxis());
+//durationAxis.title.text = "Duration";
+//durationAxis.baseUnit = "minute";
+//durationAxis.renderer.grid.template.disabled = true;
+//durationAxis.renderer.opposite = true;
+//durationAxis.syncWithAxis = distanceAxis;
+
+//durationAxis.durationFormatter.durationFormat = "hh'h' mm'min'";
+
+//var latitudeAxis = chart.yAxes.push(new am4charts.ValueAxis());
+//latitudeAxis.renderer.grid.template.disabled = true;
+//latitudeAxis.renderer.labels.template.disabled = true;
+//latitudeAxis.syncWithAxis = distanceAxis;
+
+// Create series
+var anoSeries = chart.series.push(new am4charts.LineSeries());
+anoSeries.dataFields.valueY = "valor";
+anoSeries.dataFields.categoryX = "ano";
+anoSeries.yAxis = valorAxis;
+anoSeries.xAxis = anoAxis;
+//anoSeries.tooltipText = "{valueY} miles";
+anoSeries.name = titulo.texto;
+anoSeries.tensionX = 0.77;
+
+//anoSeries.columns.template.fillOpacity = 0.7;
+//anoSeries.columns.template.propertyFields.strokeDasharray = "dashLength";
+//noSeries.columns.template.propertyFields.fillOpacity = "alpha";
+anoSeries.showOnInit = true;
+
+//var distanceState = anoSeries.columns.template.states.create("hover");
+//distanceState.properties.fillOpacity = 0.9;
+
+    // Add legend
+chart.numberFormatter.numberFormat = {
+  "style": "decimal",
+  "minimumFractionDigits": 2,
+  "intlLocales":"pt-BR" 
+};    
+chart.legend = new am4charts.Legend();
+var valorLabel = anoSeries.bullets.push(new am4charts.LabelBullet());
+valorLabel.label.text = "{valueY}";
+valorLabel.label.horizontalCenter = "left";
+valorLabel.label.dy = -14;
+valorLabel.label.dx = 22;
+
+var latitudeBullet = anoSeries.bullets.push(new am4charts.CircleBullet());
+latitudeBullet.circle.fill = am4core.color("#fff");
+latitudeBullet.circle.strokeWidth = 2;
+latitudeBullet.circle.propertyFields.radius = "townSize";
+
+// Add cursor
+chart.cursor = new am4charts.XYCursor();
+chart.cursor.fullWidthLineX = true;
+chart.cursor.xAxis = anoAxis;
+chart.cursor.lineX.strokeOpacity = 0;
+chart.cursor.lineX.fill = am4core.color("#000");
+chart.cursor.lineX.fillOpacity = 0.1;
+
+}); // end am4core.ready()
+</script>
+
+<!-- HTML -->
+<div id="chartdiv"></div>
