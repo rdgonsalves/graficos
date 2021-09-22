@@ -26,7 +26,7 @@ am4core.useTheme(am4themes_animated);
 
 // Create chart instance
 var chart = am4core.create("chartdiv", am4charts.XYChart);
-
+chart.responsive.enabled = true;
 chart.colors.step = 2;
 chart.maskBullets = false;
 
