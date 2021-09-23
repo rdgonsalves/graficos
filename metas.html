@@ -1,0 +1,659 @@
+<!-- Styles -->
+<style>
+#chartdiv {
+  width: 100%;
+  height: 500px;
+}
+
+</style>
+
+<!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/plugins/bullets.js"></script>
+<!-- Chart code -->
+<script>
+
+
+
+
+am4core.ready(function() {
+
+// Themes begin
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+// Create chart instance
+var chart = am4core.create("chartdiv", am4charts.XYChart);
+chart.responsive.enabled = true;
+chart.colors.step = 2;
+chart.maskBullets = false;
+
+const urlParams = new URLSearchParams(window.location.search);
+const par_meta = urlParams.get('meta');
+
+metas = [{"name":"1","texto":"Meta 1: Percentual da População de 4 a 5 anos que frequenta escola ou creche","dados":[]},
+         {"name":"2","texto":"Meta 2: Percentual da população de 6 a 14 anos que frequentam ou concluíram o ensino fundamental","dados":[]},
+         {"name":"2_2","texto":"Meta 2.2: Taxa de Defasagem Idade-Série no 9º ano do Ensino Fundamental","dados":[]},
+         {"name":"3","texto":"Meta 3: Percentual da população de 15 a 17 anos que frequenta a escola ou já concluiu o Ensino Médio","dados":[]},
+         {"name":"4","texto":"Meta 4: Percentual da população de 4 a 17 anos de idade com deficiência que frequenta a escola","dados":[]},
+         {"name":"6","texto":"Meta 6: Percentual de alunos da educação básica pública em tempo integral","dados":[]},
+         {"name":"8_2","texto":"Meta 8.2: Escolaridade média da população de 18 a 29 anos de idade pertencente aos 25% dos mais pobres","dados":[]},
+         {"name":"8_5","texto":"Meta 8.5: Percentual da população de 18 a 29 anos com menos de 12 anos de escolaridade","dados":[]},
+         {"name":"12","texto":"Meta 12: Taxa bruta de matrículas na graduação (TBM) e Taxa líquida de escolarização na graduação (TLE)","dados":[]}
+         
+        ]
+for(i=0;i<metas.length-1;i++){
+    if(metas[i].name==par_meta){
+        indexMeta = i;
+        meta = metas[i];
+    }
+}
+metas[0].dados = [
+						{
+							"Ano": "2018",
+							"Meta": "80.66",
+							"Observado": "80.66"
+						},
+						{
+							"Ano": "2019",
+							"Meta": "85.13",
+							"Observado": "85.28"
+						},
+						{
+							"Ano": "2020",
+							"Meta": "88.71"
+						},
+						{
+							"Ano": "2021",
+							"Meta": "91.52"
+						},
+						{
+							"Ano": "2022",
+							"Meta": "93.67"
+						},
+						{
+							"Ano": "2023",
+							"Meta": "95.31"
+						},
+						{
+							"Ano": "2024",
+							"Meta": "96.54"
+						},
+						{
+							"Ano": "2025",
+							"Meta": "97.45"
+						},
+						{
+							"Ano": "2026",
+							"Meta": "98.13"
+						},
+						{
+							"Ano": "2027",
+							"Meta": "98.63"
+						},
+						{
+							"Ano": "2028",
+							"Meta": "99.00"
+						}
+					]
+                    
+metas[1].dados = [
+		{
+			"Ano": "2018",
+			"Meta": "4.96",
+			"Observado": "4.96"
+		},
+		{
+			"Ano": "2019",
+			"Meta": "6.19",
+			"Observado": "5.72"
+		},
+		{
+			"Ano": "2020",
+			"Meta": "7.69"
+		},
+		{
+			"Ano": "2021",
+			"Meta": "9.52"
+		},
+		{
+			"Ano": "2022",
+			"Meta": "11.72"
+		},
+		{
+			"Ano": "2023",
+			"Meta": "14.36"
+		},
+		{
+			"Ano": "2024",
+			"Meta": "17.48"
+		},
+		{
+			"Ano": "2025",
+			"Meta": "21.1"
+		},
+		{
+			"Ano": "2026",
+			"Meta": "25.24"
+		},
+		{
+			"Ano": "2027",
+			"Meta": "29.89"
+		},
+		{
+			"Ano": "2028",
+			"Meta": "35"
+		}
+	]
+
+metas[2].dados =  [
+		{
+			"Ano": "2018",
+			"Meta": "90.49",
+			"Observado": "90.49"
+		},
+		{
+			"Ano": "2019",
+			"Meta": "92.33",
+			"Observado": "92.77"
+		},
+		{
+			"Ano": "2020",
+			"Meta": "93.83"
+		},
+		{
+			"Ano": "2021",
+			"Meta": "95.05"
+		},
+		{
+			"Ano": "2022",
+			"Meta": "96.05"
+		},
+		{
+			"Ano": "2023",
+			"Meta": "96.85"
+		},
+		{
+			"Ano": "2024",
+			"Meta": "97.49"
+		},
+		{
+			"Ano": "2025",
+			"Meta": "98"
+		},
+		{
+			"Ano": "2026",
+			"Meta": "98.41"
+		},
+		{
+			"Ano": "2027",
+			"Meta": "98.74"
+		},
+		{
+			"Ano": "2028",
+			"Meta": "99"
+		}
+	]
+
+metas[3].dados =  [
+		{
+			"Ano": "2018",
+			"Meta": "33.13",
+			"Observado": "33.13"
+		},
+		{
+			"Ano": "2019",
+			"Meta": "38.73",
+			"Observado": "29.04"
+		},
+		{
+			"Ano": "2020",
+			"Meta": "44.64"
+		},
+		{
+			"Ano": "2021",
+			"Meta": "50.72"
+		},
+		{
+			"Ano": "2022",
+			"Meta": "56.77"
+		},
+		{
+			"Ano": "2023",
+			"Meta": "62.62"
+		},
+		{
+			"Ano": "2024",
+			"Meta": "68.13"
+		},
+		{
+			"Ano": "2025",
+			"Meta": "73.13"
+		},
+		{
+			"Ano": "2026",
+			"Meta": "77.68"
+		},
+		{
+			"Ano": "2027",
+			"Meta": "81.62"
+		},
+		{
+			"Ano": "2028",
+			"Meta": "85"
+		}
+	]
+
+metas[4].dados = [
+		{
+			"Ano": "2018",
+			"Meta": "0.01",
+			"Observado": "0.01"
+		},
+		{
+			"Ano": "2019",
+			"Meta": "0.05",
+			"Observado": "0.01"
+		},
+		{
+			"Ano": "2020",
+			"Meta": "0.15",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2021",
+			"Meta": "0.44",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2022",
+			"Meta": "1.24",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2023",
+			"Meta": "2.91",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2024",
+			"Meta": "5.05",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2025",
+			"Meta": "6.59",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2026",
+			"Meta": "7.3",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2027",
+			"Meta": "7.56",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2028",
+			"Meta": "7.64",
+			"Observado": "-"
+		}
+	]
+
+metas[5].dados =  [
+		{
+			"Ano": "2018",
+			"Meta": "21.43",
+			"Observado": "21.43"
+		},
+		{
+			"Ano": "2019",
+			"Meta": "23.34",
+			"Observado": "20.06"
+		},
+		{
+			"Ano": "2020",
+			"Meta": "25.36",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2021",
+			"Meta": "27.5",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2022",
+			"Meta": "29.74",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2023",
+			"Meta": "32.09",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2024",
+			"Meta": "34.53",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2025",
+			"Meta": "37.05",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2026",
+			"Meta": "39.64",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2027",
+			"Meta": "42.3",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2028",
+			"Meta": "45",
+			"Observado": "-"
+		}
+	]
+
+metas[6].dados =    [
+		{
+			"Ano": "2018",
+			"Meta": "77.19",
+			"Observado": "77.19"
+		},
+		{
+			"Ano": "2019",
+			"Meta": "82.59",
+			"Observado": "78.86"
+		},
+		{
+			"Ano": "2020",
+			"Meta": "86.92",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2021",
+			"Meta": "90.31",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2022",
+			"Meta": "92.89",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2023",
+			"Meta": "94.82",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2024",
+			"Meta": "96.25",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2025",
+			"Meta": "97.29",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2026",
+			"Meta": "98.05",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2027",
+			"Meta": "98.6",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2028",
+			"Meta": "99",
+			"Observado": "-"
+		}
+	]
+
+metas[7].dados =    [
+		{
+			"Ano": "2018",
+			"Meta": "67.87",
+			"Observado": "67.87"
+		},
+		{
+			"Ano": "2019",
+			"Meta": "75.63",
+			"Observado": "58.85"
+		},
+		{
+			"Ano": "2020",
+			"Meta": "82.01",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2021",
+			"Meta": "87.01",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2022",
+			"Meta": "90.78",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2023",
+			"Meta": "93.53",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2024",
+			"Meta": "95.5",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2025",
+			"Meta": "96.9",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2026",
+			"Meta": "97.87",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2027",
+			"Meta": "98.58",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2028",
+			"Meta": "99",
+			"Observado": "-"
+		}
+	]
+
+metas[8].dados = [
+		{
+			"Ano": "2018",
+			"Meta": "4.96",
+			"Observado": "4.96"
+		},
+		{
+			"Ano": "2019",
+			"Meta": "6.19",
+			"Observado": "5.72"
+		},
+		{
+			"Ano": "2020",
+			"Meta": "7.69",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2021",
+			"Meta": "9.52",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2022",
+			"Meta": "11.72",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2023",
+			"Meta": "14.36",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2024",
+			"Meta": "17.48",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2025",
+			"Meta": "21.1",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2026",
+			"Meta": "25.24",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2027",
+			"Meta": "29.89",
+			"Observado": "-"
+		},
+		{
+			"Ano": "2028",
+			"Meta": "35",
+			"Observado": "-"
+		}
+	]
+
+chart.data = meta.dados;
+chart.fontFamily = "Arial";
+// Create axes
+var anoAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+anoAxis.dataFields.category="Ano";
+//anoAxis.renderer.grid.template.location = 0;
+//anoAxis.renderer.minGridDistance = 50;
+//anoAxis.renderer.grid.template.disabled = true;
+//anoAxis.renderer.fullWidthTooltip = true;
+
+
+//var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+//dateAxis.renderer.grid.template.location = 0;
+//dateAxis.renderer.minGridDistance = 50;
+//dateAxis.renderer.grid.template.disabled = true;
+//dateAxis.renderer.fullWidthTooltip = true;
+
+//var distanceAxis = chart.yAxes.push(new am4charts.ValueAxis());
+//distanceAxis.title.text = "Distance";
+//distanceAxis.renderer.grid.template.disabled = true;
+var MetaAxis = chart.yAxes.push(new am4charts.ValueAxis());
+MetaAxis.title.text = "Meta";
+
+//var ObservadoAxis = chart.yAxes.push(new am4charts.ValueAxis());
+//ObservadoAxis.title.text = "Observado";
+//ObservadoAxis.syncWithAxis = MetaAxis;
+
+//var durationAxis = chart.yAxes.push(new am4charts.DurationAxis());
+//durationAxis.title.text = "Duration";
+//durationAxis.baseUnit = "minute";
+//durationAxis.renderer.grid.template.disabled = true;
+//durationAxis.renderer.opposite = true;
+//durationAxis.syncWithAxis = distanceAxis;
+
+//durationAxis.durationFormatter.durationFormat = "hh'h' mm'min'";
+
+//var latitudeAxis = chart.yAxes.push(new am4charts.ValueAxis());
+//latitudeAxis.renderer.grid.template.disabled = true;
+//latitudeAxis.renderer.labels.template.disabled = true;
+//latitudeAxis.syncWithAxis = distanceAxis;
+
+// Create series
+var metaSeries = chart.series.push(new am4charts.LineSeries());
+metaSeries.dataFields.valueY = "Meta";
+metaSeries.dataFields.categoryX = "Ano";
+metaSeries.yAxis = MetaAxis;
+metaSeries.xAxis = anoAxis;
+metaSeries.strokeWidth =3;
+metaSeries.stroke = am4core.color("#083050");
+//console.log(titulo);
+
+metaSeries.name = "Meta";
+
+metaSeries.showOnInit = true;
+
+var observadoSeries = chart.series.push(new am4charts.LineSeries());
+observadoSeries.dataFields.valueY = "Observado";
+observadoSeries.dataFields.categoryX = "Ano";
+observadoSeries.yAxis = MetaAxis;
+observadoSeries.xAxis = anoAxis;
+observadoSeries.strokeWidth =3;
+observadoSeries.stroke = am4core.color("#f26651");
+
+observadoSeries.name = "Observado";
+observadoSeries.showOnInit = true;
+
+//var distanceState = anoSeries.columns.template.states.create("hover");
+//distanceState.properties.fillOpacity = 0.9;
+
+    // Add legend
+//chart.numberFormatter.numberFormat = {
+//  "style": "decimal",
+//  "minimumFractionDigits": 2,
+//  "intlLocales":"pt-BR" 
+//};    
+
+chart.legend = new am4charts.Legend();
+
+var metaLabel = metaSeries.bullets.push(new am4charts.LabelBullet());
+metaLabel.label.text = "{valueY}";
+metaLabel.label.horizontalCenter = "left";
+//valorLabel.label.dy = -14;
+//valorLabel.label.dx = 22;
+metaLabel.label.fill = am4core.color("#083050");
+metaLabel.label.background.fill = am4core.color("#eee");
+metaLabel.label.padding(4, 8, 4, 8);
+
+var observadoLabel = observadoSeries.bullets.push(new am4charts.LabelBullet());
+observadoLabel.label.text = "{valueY}";
+observadoLabel.label.horizontalCenter = "left";
+observadoLabel.label.dy = -20;
+observadoLabel.label.fill = am4core.color("#f26651");
+//valorLabel.label.dx = 22;
+observadoLabel.label.background.fill = am4core.color("#eee");
+observadoLabel.label.padding(4, 8, 4, 8);
+
+
+var valorBullet = metaSeries.bullets.push(new am4charts.CircleBullet());
+valorBullet.circle.fill = am4core.color("#fff");
+valorBullet.circle.strokeWidth = 2;
+valorBullet.circle.propertyFields.radius = "townSize";
+
+var title = chart.titles.create();
+title.text = meta.texto;
+title.fontSize = 25;
+title.marginBottom = 30;
+
+
+// Add cursor
+chart.cursor = new am4charts.XYCursor();
+chart.cursor.fullWidthLineX = true;
+chart.cursor.xAxis = anoAxis;
+chart.cursor.lineX.strokeOpacity = 0;
+chart.cursor.lineX.fill = am4core.color("#000");
+chart.cursor.lineX.fillOpacity = 0.1;
+
+}); // end am4core.ready()
+</script>
+
+<!-- HTML -->
+<div id="chartdiv"></div>
