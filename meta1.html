@@ -11,7 +11,7 @@
 
 		<!-- amCharts javascript code -->
 		<script type="text/javascript">
-			AmCharts.makeChart("chartdiv",
+			chart = AmCharts.makeChart("chartdiv",
 				{
 					"type": "serial",
 					"categoryField": "Ano",
@@ -132,6 +132,7 @@
 					]
 				}
 			);
+		console.log(chart);
 		</script>
 	</head>
 	<body>
