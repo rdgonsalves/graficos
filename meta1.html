@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Meta 1 | amCharts</title>
+		<meta name="description" content="chart created using amCharts live editor" />
+		
+		<!-- amCharts javascript sources -->
+		<script type="text/javascript" src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+		<script type="text/javascript" src="https://www.amcharts.com/lib/3/serial.js"></script>
+		
+
+		<!-- amCharts javascript code -->
+		<script type="text/javascript">
+			AmCharts.makeChart("chartdiv",
+				{
+					"type": "serial",
+					"categoryField": "Ano",
+					"startDuration": 1,
+					"accessibleTitle": "",
+					"backgroundAlpha": 0.8,
+					"handDrawScatter": 4,
+					"processCount": 965,
+					"categoryAxis": {
+						"gridPosition": "start"
+					},
+					"trendLines": [],
+					"graphs": [
+						{
+							"balloonColor": "",
+							"balloonText": "[[title]] of [[category]]:[[value]]",
+							"bullet": "round",
+							"color": "#3DB0CA",
+							"fillColors": "#3DB0CA",
+							"id": "AmGraph-1",
+							"lineColor": "#0000FF",
+							"title": "Meta",
+							"valueField": "Meta"
+						},
+						{
+							"alphaField": "Observado",
+							"balloonText": "[[title]] of [[category]]:[[value]]",
+							"bullet": "square",
+							"bulletField": "Observado",
+							"id": "AmGraph-2",
+							"lineColor": "#FF8000",
+							"lineThickness": 2,
+							"title": "Observado",
+							"type": "smoothedLine",
+							"valueField": "Observado"
+						}
+					],
+					"guides": [],
+					"valueAxes": [
+						{
+							"id": "ValueAxis-1",
+							"labelOffset": -2,
+							"minHorizontalGap": 80,
+							"minVerticalGap": 30,
+							"title": "Meta"
+						}
+					],
+					"allLabels": [],
+					"balloon": {},
+					"legend": {
+						"enabled": true,
+						"useGraphSettings": true
+					},
+					"titles": [
+						{
+							"color": "#000000",
+							"id": "Title-1",
+							"size": 15,
+							"text": "Meta 1: Percentual da População de 4 a 5 anos que frequenta escola ou creche"
+						}
+					],
+					"dataProvider": [
+						{
+							"Ano": "2018",
+							"Meta": "80.66",
+							"Observado": "80.66"
+						},
+						{
+							"Ano": "2019",
+							"Meta": "85.13",
+							"Observado": "85.28"
+						},
+						{
+							"Ano": "2020",
+							"Meta": "88.71",
+							"Observado": "-"
+						},
+						{
+							"Ano": "2021",
+							"Meta": "91.52",
+							"Observado": "-"
+						},
+						{
+							"Ano": "2022",
+							"Meta": "93.67",
+							"Observado": "-"
+						},
+						{
+							"Ano": "2023",
+							"Meta": "95.31",
+							"Observado": "-"
+						},
+						{
+							"Ano": "2024",
+							"Meta": "96.54",
+							"Observado": "-"
+						},
+						{
+							"Ano": "2025",
+							"Meta": "97.45",
+							"Observado": "-"
+						},
+						{
+							"Ano": "2026",
+							"Meta": "98.13",
+							"Observado": "-"
+						},
+						{
+							"Ano": "2027",
+							"Meta": "98.63",
+							"Observado": "-"
+						},
+						{
+							"Ano": "2028",
+							"Meta": "99.00",
+							"Observado": "-"
+						}
+					]
+				}
+			);
+		</script>
+	</head>
+	<body>
+		<div id="chartdiv" style="width: 100%; height: 400px; background-color: #FFFFFF;" ></div>
+	</body>
+</html>
