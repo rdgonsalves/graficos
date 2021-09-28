@@ -70,20 +70,20 @@
               {"name":"TOT","texto":"Total"}
             
             ]
-    titulo = titulos[0];
+    var titulo = titulos[0];
     for(i = 0;i<titulos.length;i++){
         if(titulos[i].name==par_valor){
             titulo = titulos[i];
         }
     }
-    orgao = orgaos[0];
+    var orgao = orgaos[0];
     for(i = 0;i<orgaos.length;i++){
         if(orgaos[i].name==par_orgao){
             orgao = orgaos[i];
         }
     }
     
-    par_valor = tilulo.name;
+    par_valor = titulo.name;
     par_orgao = orgao.name;
     dados = {
         "despesas":[
