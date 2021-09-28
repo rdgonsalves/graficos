@@ -32,13 +32,18 @@
     
     const urlParams = new URLSearchParams(window.location.search);
     var par_orgao = urlParams.get('orgao');
-      if(par_orgao === null){
+    console.log(par_orgao);
+    //    if(par_orgao===""){
+    //        console.log("orgao undefined");
+    //        par_orgao = "TOT";
+    //    }    
+      if(par_orgao === null||par_orgao===""){
         console.log("orgao undefined");
         par_orgao = "TOT";
       }
     console.log(par_orgao);
     var par_valor = urlParams.get('valor');
-    if(par_valor === null){
+    if(par_valor === null||par_valor===""){
         console.log("valor undefined");
         par_valor = "paga";
       }
@@ -66,8 +71,7 @@
               {"name":"C08","texto":"8ª CRE"},
               {"name":"C09","texto":"9ª CRE"},
               {"name":"C10","texto":"10ª CRE"},
-              {"name":"C01","texto":"11ª CRE"},
-              {"name":"C01","texto":"1ª CRE"},
+              {"name":"C11","texto":"11ª CRE"},
               {"name":"EF","texto":"EDUCAÇÃO FÍSICA NA EDUCAÇÃO BÁSICA"},
               {"name":"TOT","texto":"Total"}
             
