@@ -31,7 +31,10 @@ chart.colors.step = 2;
 chart.maskBullets = false;
 
 const urlParams = new URLSearchParams(window.location.search);
-const par_orgao = urlParams.get('orgao');
+var par_orgao = urlParams.get('orgao');
+  if(par_orgao == undefined){
+    par_orgao = "TOT";
+  }
 const par_valor = urlParams.get('valor');
 const par_escala = urlParams.get('escala');
 
