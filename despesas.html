@@ -32,21 +32,21 @@
     
     const urlParams = new URLSearchParams(window.location.search);
     var par_orgao = urlParams.get('orgao');
-    console.log(par_orgao);
+    //console.log(par_orgao);
     //    if(par_orgao===""){
     //        console.log("orgao undefined");
     //        par_orgao = "TOT";
     //    }    
-      if(par_orgao === null||par_orgao===""){
-        console.log("orgao undefined");
-        par_orgao = "TOT";
-      }
-    console.log(par_orgao);
-    var par_valor = urlParams.get('valor');
-    if(par_valor === null||par_valor===""){
-        console.log("valor undefined");
-        par_valor = "paga";
-      }
+    //  if(par_orgao === null||par_orgao===""){
+     //   console.log("orgao undefined");
+     //   par_orgao = "TOT";
+     // }
+    //console.log(par_orgao);
+    //var par_valor = urlParams.get('valor');
+    //if(par_valor === null||par_valor===""){
+    //    console.log("valor undefined");
+    //    par_valor = "paga";
+    //  }
 
     const par_escala = urlParams.get('escala');
     
@@ -89,7 +89,8 @@
         }
     }
     
-    
+    par_valor = tilulo.name;
+    par_orgao = orgao.name;
     dados = {
         "despesas":[
             {
