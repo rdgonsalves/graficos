@@ -70,13 +70,13 @@
               {"name":"TOT","texto":"Total"}
             
             ]
-    var titulo = titulos[0];
+    var titulo = titulos[titulos.length-1];
     for(i = 0;i<titulos.length;i++){
         if(titulos[i].name==par_valor){
             titulo = titulos[i];
         }
     }
-    var orgao = orgaos[0];
+    var orgao = orgaos[orgaos.length-1];
     for(i = 0;i<orgaos.length;i++){
         if(orgaos[i].name==par_orgao){
             orgao = orgaos[i];
