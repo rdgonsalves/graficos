@@ -33,8 +33,10 @@ chart.maskBullets = false;
 const urlParams = new URLSearchParams(window.location.search);
 var par_orgao = urlParams.get('orgao');
   if(par_orgao == undefined){
+    console.log("orgao undefined");
     par_orgao = "TOT";
   }
+console.log(par_orgao);
 const par_valor = urlParams.get('valor');
 const par_escala = urlParams.get('escala');
 
