@@ -1,0 +1,404 @@
+<html>
+    <body>
+        <table><tr><td>
+        <div id="melodia" style="height:70"></div> 
+         </td><td><div id="acompanhamento"></div></td></tr></table>
+        <div id="partitura"></div>
+
+        <script>
+    const urlParams = new URLSearchParams(window.location.search);
+
+var par_musica = urlParams.get('musica');
+
+dados = {
+    "anuario": [
+        {
+            "Data": "01/Jan",
+            "BPM": "46",
+            "Titulo": "Cristovaniana 1",
+            "ABR": "cho",
+            "TOM": "Em",
+            "Estilo": "choro dolente",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CJgJLzSJ0-J/",
+            "Partitura": "1hxviB6pvv11q60Vf4V_eUa8SD3TqFmO6",
+            "Melodia": "1f7Mdbgl56ujvoJOxHsAz-wv2FXehrKC7"
+        },
+        {
+            "Data": "02/Jan",
+            "BPM": "86",
+            "Titulo": "Pangaré",
+            "ABR": "max",
+            "TOM": "C",
+            "Estilo": "maxixe",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CJiix45pTIv/",
+            "Partitura": "11LbWOwZZiquGmo31g7YxK0kGMKnY3C2v",
+            "Melodia": "1UakqUVxcAkNar69NMieXtihzprrn5C3U"
+        },
+        {
+            "Data": "03/Jan",
+            "BPM": "108",
+            "Titulo": "Genoveva no Choro",
+            "ABR": "chi",
+            "TOM": "F",
+            "Estilo": "choro",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CJlRh40Jgfs/",
+            "Partitura": "1kWOpX0XP3P-qdfTtozEuVy7qkk_reYMI",
+            "Melodia": "1-PIilE_GxlBktF39RZ20bHqMBp2vM-di"
+        },
+        {
+            "Data": "04/Jan",
+            "BPM": "52",
+            "Titulo": "Terno",
+            "ABR": "cho",
+            "TOM": "Am",
+            "Estilo": "choro",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CJoAhnKJrw2/",
+            "Partitura": "1aoqSsEAVtVqqkQM9LPv1U5vPfrRzf21u",
+            "Melodia": "1HwM6kS1oN8i1kxCd97TV56EZ-dSTkSsv"
+        },
+        {
+            "Data": "05/Jan",
+            "BPM": "114",
+            "Titulo": "Transparente",
+            "ABR": "sch",
+            "TOM": "Gm",
+            "Estilo": "schottisch",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CJqXhTqJwvR/",
+            "Partitura": "1qZdTPG6LkdhA2rfFp3t0wRJguiQsz3kV",
+            "Melodia": "176Am5O6jjjAFLnUhYKSE2pnYFGgdIYRw"
+        },
+        {
+            "Data": "06/Jan",
+            "BPM": "110",
+            "Titulo": "Lembrando Altamiro",
+            "ABR": "cho",
+            "TOM": "Dm",
+            "Estilo": "choro",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CJs57gmJXDL/",
+            "Partitura": "1L2FZ5Wu5VX46qnNPMXStHZSfZR1oNYNj",
+            "Melodia": "1_y3m_69iG6RNDILJ3GrenxOldmjmjVNV"
+        },
+        {
+            "Data": "07/Jan",
+            "BPM": "110",
+            "Titulo": "Choro para Marco Sinigaglia",
+            "ABR": "cho",
+            "TOM": "D",
+            "Estilo": "choro",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CJv6HXapOeC/",
+            "Partitura": "1t-UpZmz3k0ZQIwqNMyNOgErL3W9JjEjE",
+            "Melodia": "1yNcyTcLgo3dZZ4Ek9stb7h5uWvRtnoU-"
+        },
+        {
+            "Data": "08/Jan",
+            "BPM": "108",
+            "Titulo": "Capucho no Choro Jazz",
+            "ABR": "pol",
+            "TOM": "D",
+            "Estilo": "choro",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CJyYleHJdEM/",
+            "Partitura": "1NUAxdBR5qS08CY7-vnfwcXoGcrgIJwj3",
+            "Melodia": "16QBzIiscLltiuFiL6yZrShkgfQA1iSJt"
+        },
+        {
+            "Data": "09/Jan",
+            "BPM": "100",
+            "Titulo": "Pra não esquecer",
+            "ABR": "val",
+            "TOM": "Dm",
+            "Estilo": "valsa",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CJ1EDj5pmx1/",
+            "Partitura": "1c8SX_BCjpe0j0pQmW8kck3jMdAsEX99B",
+            "Melodia": "1-8rkKgScSt1u-8tg9hMHqIVnaRm53ksM"
+        },
+        {
+            "Data": "10/Jan",
+            "BPM": "130",
+            "Titulo": "Furdúncio",
+            "ABR": "cho",
+            "TOM": "F",
+            "Estilo": "choro",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CJ3wSMmJLnf/",
+            "Partitura": "1j-5nyRU4qKDwr-j8SFj2kgY62SrKhVCq",
+            "Melodia": "1MUJOm1qETkCNqHpG6TqgU_jU-TFxe7IR"
+        },
+        {
+            "Data": "11/Jan",
+            "BPM": "90",
+            "Titulo": "Vou dar um tempinho",
+            "ABR": "chs",
+            "TOM": "G",
+            "Estilo": "choro",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CJ6N3m_JhRo/",
+            "Partitura": "1vPNBwCGXHRcwYhDfI1-ZZt_Us89GzELD",
+            "Melodia": "1vnje06ovuNOuI0JjK39nRmiNCpkNA69e"
+        },
+        {
+            "Data": "12/Jan",
+            "BPM": "72",
+            "Titulo": "Resistência",
+            "ABR": "tan",
+            "TOM": "Em",
+            "Estilo": "tango",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CJ8a195pwVW/",
+            "Partitura": "1n4JKhuqReXDJpmZzOO4vGVagqW_iTaEc",
+            "Melodia": "1SwNbu8qAFVYnocuw1RAGVJOsVRM2rpam"
+        },
+        {
+            "Data": "13/Jan",
+            "BPM": "81",
+            "Titulo": "Seringa",
+            "ABR": "cho",
+            "TOM": "C",
+            "Estilo": "choro",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CJ_TDRapkPf/",
+            "Partitura": "1C9T0yWoZOLvPVTWUMY9IaRWsuTpFDhS_",
+            "Melodia": "1RkZ1wbK7gqUFVGLSyznbSzBICV3hK336"
+        },
+        {
+            "Data": "14/Jan",
+            "BPM": "60",
+            "Titulo": "Trem da História",
+            "ABR": "cho",
+            "TOM": "Bm",
+            "Estilo": "choro",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CKBrEALpq8s/",
+            "Partitura": "1Y-5-nweQynf85eB1eMczUaF_vwFAtQyi",
+            "Melodia": "1E9RE2TvXWhcrRT8mI-6hIHT9DsygSbcY"
+        },
+        {
+            "Data": "15/Jan",
+            "BPM": "180",
+            "Titulo": "Valsa Gorjeada",
+            "ABR": "val",
+            "TOM": "Am",
+            "Estilo": "valsa",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CKEL2iqpdZg/",
+            "Partitura": "1eJTGttv730x7NXtwJ_zjgvBtfIxgEFv2",
+            "Melodia": "15NVWrmVJOy-HRl0MEz0p3AIKA0t-GpXF"
+        },
+        {
+            "Data": "16/Jan",
+            "BPM": "110",
+            "Titulo": "Tenorio na Gandaia",
+            "ABR": "chi",
+            "TOM": "D",
+            "Estilo": "choro",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CKG9SYMJvq8/",
+            "Partitura": "1SXEdacbYIHvOf7GsY2xiz74iThKDaNeC",
+            "Melodia": "1rH3_pn8euMi-PSG0vk8bv4zIFQf0uLWW"
+        },
+        {
+            "Data": "17/Jan",
+            "BPM": "124",
+            "Titulo": "Folia das Crianças",
+            "ABR": "cho",
+            "TOM": "C",
+            "Estilo": "choro",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CKJaXlPJBrT/",
+            "Partitura": "1XGKeZn-wKddr77PD2SedIG-xcJSilY5Q",
+            "Melodia": "1ltYtirotPQoYQALjOLQQzB87pjyZLQpE"
+        },
+        {
+            "Data": "18/Jan",
+            "BPM": "52",
+            "Titulo": "Mestre Waldir Maurício",
+            "ABR": "hab",
+            "TOM": "Em",
+            "Estilo": "habanera",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CKMBlO7J4dK/",
+            "Partitura": "1VAzKyb0VV9-rc7mQ55PNd7tvHPZkRVT1",
+            "Melodia": "1nBRc1SnCV88OWRsVVpIC-utI-BfqbK-J"
+        },
+        {
+            "Data": "19/Jan",
+            "BPM": "124",
+            "Titulo": "Batucajé",
+            "ABR": "chi",
+            "TOM": "Am",
+            "Estilo": "choro",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CKOtzDfpCQO/",
+            "Partitura": "1jwZ6xDhlufjbvxiqk2_ws9rDQa1HpF2A",
+            "Melodia": "1dHRcs_vRghLsnB7Q9lQCKMDEtGq4C8-0"
+        },
+        {
+            "Data": "20/Jan",
+            "BPM": "180",
+            "Titulo": "Apressadinha",
+            "ABR": "var",
+            "TOM": "A",
+            "Estilo": "valsa rancheira",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CKRGOnXpDxH/",
+            "Partitura": "1sMN6Wdmz2OagXo5OI376aB_iTvxXwuSp",
+            "Melodia": "10QYSIxsCe8XV_tcyI9cK8JBuzaQdmcUC"
+        },
+        {
+            "Data": "21/Jan",
+            "BPM": "110",
+            "Titulo": "Prico-Prico",
+            "ABR": "pol",
+            "TOM": "G",
+            "Estilo": "polca",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CKT4UGmp6VH/",
+            "Partitura": "1NWkkZA2Q45CMyHhPTJbRcNFq8rHeXr9I",
+            "Melodia": "1Rob4u3jRuJDSX54MC8otgQsNYnTG_HHS"
+        },
+        {
+            "Data": "22/Jan",
+            "BPM": "78",
+            "Titulo": "Cambaleando",
+            "ABR": "cho",
+            "TOM": "Em",
+            "Estilo": "choro",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CKWPEdWpUQo/",
+            "Partitura": "1ZASQCsvb-bkXzH5awSG1XsCADFpZxBUu",
+            "Melodia": "1G7XNv3fh7I6YTpK6JusfiBZWWdAgLjKK"
+        },
+        {
+            "Data": "23/Jan",
+            "BPM": "92",
+            "Titulo": "Elias no anuário",
+            "ABR": "cho",
+            "TOM": "C",
+            "Estilo": "choro",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CKY7txmpUb3/",
+            "Partitura": "1K4MlbtuggrtMJ0T5uJ8dXNV3upHKGwiZ",
+            "Melodia": "1vbOStuPnfdiIXQhn3j1-k-BnDr2A7Sj3"
+        },
+        {
+            "Data": "24/Jan",
+            "BPM": "120",
+            "Titulo": "Festa no Céu",
+            "ABR": "sam",
+            "TOM": "C",
+            "Estilo": "samba",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CKbk3u5JJCt/",
+            "Partitura": "1h6-lYbFYCdaWjPA5ueXdnTo4jNQwMfEs",
+            "Melodia": "1y-0x0_lF2OOP9B87K5X5y1CUg8GIH9dC"
+        },
+        {
+            "Data": "25/Jan",
+            "BPM": "56",
+            "Titulo": "Choro para Benedetto Fanna",
+            "ABR": "cho",
+            "TOM": "Bm",
+            "Estilo": "choro",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CKePdmhJp2d/",
+            "Partitura": "1D2CYYgudrBO2HQvkQuJgX5amThnSo89J",
+            "Melodia": "1e1sYEdjOSMUPRQ1UkZoTkGD49DIyVbLM"
+        },
+        {
+            "Data": "26/Jan",
+            "BPM": "180",
+            "Titulo": "Desabalada",
+            "ABR": "val",
+            "TOM": "Dm",
+            "Estilo": "valsa",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CKgqPKBJtSO/",
+            "Partitura": "1cAVDZdwybov9FKIqgG64dygUzMjljj4K",
+            "Melodia": "18e-7Q5nNLcv4kP6U0b8OGrkHD5j3MzC2"
+        },
+        {
+            "Data": "27/Jan",
+            "BPM": "63",
+            "Titulo": "Salve Radamés!",
+            "ABR": "cho",
+            "TOM": "Cm",
+            "Estilo": "choro",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CKjMEnPJa15/",
+            "Partitura": "1fzdMjSOegRHvl2pqUZIHST1e6HIYbxM8",
+            "Melodia": "1Agk1DacD_d4VGrfdc2CfojckJEbjduBz"
+        },
+        {
+            "Data": "28/Jan",
+            "Titulo": "Balacochê do Cavaco",
+            "ABR": "chi",
+            "TOM": "Am",
+            "Estilo": "choro",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CKltaECJzy2/",
+            "Partitura": "1Lp1PGVS2_QK9a699ra7ioneKguQdKDA9",
+            "Melodia": "1njalEmsXNEOBD7Eeg2UmJOaRhPv8JM_F"
+        },
+        {
+            "Data": "29/Jan",
+            "BPM": "120",
+            "Titulo": "Conta Gotas",
+            "ABR": "cho",
+            "TOM": "Bm",
+            "Estilo": "choro",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CKoYxECJe8D/",
+            "Partitura": "1hMao3GSsFeNhHeotWdoc8vIYO79xcH55",
+            "Melodia": "1lgyyesDFs2dwRcJXCs0vlJv8bsGjnfXE"
+        },
+        {
+            "Data": "30/Jan",
+            "BPM": "96",
+            "Titulo": "Rabugento",
+            "ABR": "pol",
+            "TOM": "Bb",
+            "Estilo": "polca",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CKq9CeQJrOz/",
+            "Partitura": "1_SGXuebOvy77gJtOuDAJKpgs36pfx3-p",
+            "Melodia": "19hhzbL_uxfqsiSSNxqG-qLV84JqODP6h"
+        },
+        {
+            "Data": "31/Jan",
+            "Titulo": "Pertinaz",
+            "ABR": "cho",
+            "TOM": "Gm",
+            "Estilo": "choro",
+            "undefined": "Melodia",
+            "Acompanhamento": "https://www.instagram.com/p/CKthpWIprZg/",
+            "Partitura": "14EykXi6tOf6cAOR_vJU_oar4mchhENsY",
+            "Melodia": "1oNBgLhMXAdQxxf4zZqp0KL9CmTIxmGp8"
+        }
+    ]
+};
+musica = dados.anuario[0];
+for(i = 0;i<dados.anuario.length;i++){
+        if(dados.anuario[i].name==par_musica){
+            musica = dados.anuario[i];
+        }
+    }
+sourceMelodia = "https://drive.google.com/file/d/" + musica.Melodia + "/view";
+sourcePartitura = "https://drive.google.com/file/d/" + musica.Partitura ;
+htmlAcompanhamento = "<A HREF='" + musica.Acompanhamento + "' target='_blank'>Musica</A>";
+htmlPartitura = "<iframe src='https://docs.google.com/viewer?srcid=" + musica.Partitura + "&pid=explorer&efh=false&a=v&chrome=false&embedded=true' frameborder='0' height='700px' width='100%''>nnn</iframe>"
+htmlMelodia = "<audio controls='controls'><source src='https://docs.google.com/uc?export=download&id=" + musica.Melodia + "'></audio>";
+document.getElementById("partitura").innerHTML = htmlPartitura;
+document.getElementById("acompanhamento").innerHTML = htmlAcompanhamento;
+
+document.getElementById("melodia").innerHTML = htmlMelodia;
+</script>
+</body>
+</html>
