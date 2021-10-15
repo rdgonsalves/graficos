@@ -32,7 +32,6 @@ chart.maskBullets = false;
 
 const urlParams = new URLSearchParams(window.location.search);
 const par_meta = urlParams.get('meta');
-
 metas = [{"name":"1","texto":"Meta 1: Percentual da População de 4 a 5 anos que frequenta escola ou creche","dados":[]},
          {"name":"2","texto":"Meta 2: Percentual da população de 6 a 14 anos que frequentam ou concluíram o ensino fundamental","dados":[]},
          {"name":"2_2","texto":"Meta 2.2: Taxa de Defasagem Idade-Série no 9º ano do Ensino Fundamental","dados":[]},
@@ -42,6 +41,18 @@ metas = [{"name":"1","texto":"Meta 1: Percentual da População de 4 a 5 anos qu
          {"name":"8_2","texto":"Meta 8.2: Escolaridade média da população de 18 a 29 anos de idade pertencente aos 25% dos mais pobres","dados":[]},
          {"name":"8_5","texto":"Meta 8.5: Percentual da população de 18 a 29 anos com menos de 12 anos de escolaridade","dados":[]},
          {"name":"12","texto":"Meta 12: Taxa bruta de matrículas na graduação (TBM) e Taxa líquida de escolarização na graduação (TLE)","dados":[]}
+         
+        ]
+
+metas = [{"name":"1","texto":"Meta 1","dados":[]},
+         {"name":"2","texto":"Meta 2","dados":[]},
+         {"name":"2_2","texto":"Meta 2.2","dados":[]},
+         {"name":"3","texto":"Meta 3","dados":[]},
+         {"name":"4","texto":"Meta 4","dados":[]},
+         {"name":"6","texto":"Meta 6","dados":[]},
+         {"name":"8_2","texto":"Meta 8.2","dados":[]},
+         {"name":"8_5","texto":"Meta 8.5","dados":[]},
+         {"name":"12","texto":"Meta 12","dados":[]}
          
         ]
 for(i=0;i<metas.length;i++){
