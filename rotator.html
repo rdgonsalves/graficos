@@ -1,0 +1,29 @@
+<iframe id="rotator" src="https://tcmrj.maps.arcgis.com/apps/dashboards/fd28d17dbadd454f971714ba8b5bacfe"></iframe>
+
+<script>
+// start when the page is loaded
+window.onload = function() {
+
+  var urls = [
+    "https://tcmrj.maps.arcgis.com/apps/dashboards/5ec858bac12d45b68b05f3efebcd71ef",
+    "https://tcmrj.maps.arcgis.com/apps/dashboards/fd28d17dbadd454f971714ba8b5bacfe",
+  ];
+
+  var index = 1;
+  var el = document.getElementById("rotator");
+
+  setTimeout(function rotate() {
+
+    if ( index === urls.length ) {
+      index = 0;
+    }
+
+    el.src = urls[index];
+    index  = index + 1;
+
+    // continue rotating iframes
+    setTimeout(rotate, 5000);
+
+  }, 5000); // 5000ms = 5s
+};
+</script>
