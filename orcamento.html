@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>chart created with amCharts | amCharts</title>
+		<meta name="description" content="chart created using amCharts live editor" />
+		
+		<!-- amCharts javascript sources -->
+		<script type="text/javascript" src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+		<script type="text/javascript" src="https://cdn.amcharts.com/lib/3/serial.js"></script>
+		
+
+		<!-- amCharts javascript code -->
+		<script type="text/javascript">
+function onChange(){
+
+valores =  [
+            {
+                "ANO": "2018",
+                "CRE": "Gabinete",
+                "Despesa Autorizada Inicial": "  5,896,650,574.00 ",
+                "Despesa Autorizada Final": "  6,005,181,992.94 ",
+                "Poder de Gasto": "  5,985,448,356.00 ",
+                "Despesa Empenhada": "  5,340,231,289.79 ",
+                "Despesa Liquidada": "  5,334,373,858.78 ",
+                "Despesa Paga": "  4,922,649,728.30 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  5,896,650.57 ",
+                "Despesa Autorizada Final em milhares de reais": "  6,005,181.99 ",
+                "Poder de Gasto em milhares de reais": "  5,985,448.36 ",
+                "Despesa Empenhada em milhares de reais": "  5,340,231.29 ",
+                "Despesa Liquidada em milhares de reais": "  5,334,373.86 ",
+                "Despesa Paga em milhares de reais": "  4,922,649.73 "
+            },
+            {
+                "ANO": "2018",
+                "CRE": "1ª",
+                "Despesa Autorizada Inicial": "  40,076,719.00 ",
+                "Despesa Autorizada Final": "  51,442,367.75 ",
+                "Poder de Gasto": "  51,439,533.75 ",
+                "Despesa Empenhada": "  42,562,252.09 ",
+                "Despesa Liquidada": "  40,283,017.34 ",
+                "Despesa Paga": "  35,695,268.29 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  40,076.72 ",
+                "Despesa Autorizada Final em milhares de reais": "  51,442.37 ",
+                "Poder de Gasto em milhares de reais": "  51,439.53 ",
+                "Despesa Empenhada em milhares de reais": "  42,562.25 ",
+                "Despesa Liquidada em milhares de reais": "  40,283.02 ",
+                "Despesa Paga em milhares de reais": "  35,695.27 "
+            },
+            {
+                "ANO": "2018",
+                "CRE": "2ª",
+                "Despesa Autorizada Inicial": "  62,285,210.00 ",
+                "Despesa Autorizada Final": "  93,338,556.77 ",
+                "Poder de Gasto": "  93,333,722.77 ",
+                "Despesa Empenhada": "  88,110,153.18 ",
+                "Despesa Liquidada": "  86,897,545.79 ",
+                "Despesa Paga": "  78,875,797.10 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  62,285.21 ",
+                "Despesa Autorizada Final em milhares de reais": "  93,338.56 ",
+                "Poder de Gasto em milhares de reais": "  93,333.72 ",
+                "Despesa Empenhada em milhares de reais": "  88,110.15 ",
+                "Despesa Liquidada em milhares de reais": "  86,897.55 ",
+                "Despesa Paga em milhares de reais": "  78,875.80 "
+            },
+            {
+                "ANO": "2018",
+                "CRE": "3ª",
+                "Despesa Autorizada Inicial": "  62,203,509.00 ",
+                "Despesa Autorizada Final": "  84,749,505.02 ",
+                "Poder de Gasto": "  84,744,837.02 ",
+                "Despesa Empenhada": "  78,858,596.00 ",
+                "Despesa Liquidada": "  73,978,658.37 ",
+                "Despesa Paga": "  68,982,652.39 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  62,203.51 ",
+                "Despesa Autorizada Final em milhares de reais": "  84,749.51 ",
+                "Poder de Gasto em milhares de reais": "  84,744.84 ",
+                "Despesa Empenhada em milhares de reais": "  78,858.60 ",
+                "Despesa Liquidada em milhares de reais": "  73,978.66 ",
+                "Despesa Paga em milhares de reais": "  68,982.65 "
+            },
+            {
+                "ANO": "2018",
+                "CRE": "4ª",
+                "Despesa Autorizada Inicial": "  72,324,419.00 ",
+                "Despesa Autorizada Final": "  104,295,308.00 ",
+                "Poder de Gasto": "  104,292,474.00 ",
+                "Despesa Empenhada": "  101,632,092.13 ",
+                "Despesa Liquidada": "  95,899,586.42 ",
+                "Despesa Paga": "  89,654,842.05 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  72,324.42 ",
+                "Despesa Autorizada Final em milhares de reais": "  104,295.31 ",
+                "Poder de Gasto em milhares de reais": "  104,292.47 ",
+                "Despesa Empenhada em milhares de reais": "  101,632.09 ",
+                "Despesa Liquidada em milhares de reais": "  95,899.59 ",
+                "Despesa Paga em milhares de reais": "  89,654.84 "
+            },
+            {
+                "ANO": "2018",
+                "CRE": "5ª",
+                "Despesa Autorizada Inicial": "  58,962,474.00 ",
+                "Despesa Autorizada Final": "  71,999,414.99 ",
+                "Poder de Gasto": "  71,997,414.99 ",
+                "Despesa Empenhada": "  65,076,803.51 ",
+                "Despesa Liquidada": "  58,217,752.42 ",
+                "Despesa Paga": "  55,528,861.77 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  58,962.47 ",
+                "Despesa Autorizada Final em milhares de reais": "  71,999.41 ",
+                "Poder de Gasto em milhares de reais": "  71,997.41 ",
+                "Despesa Empenhada em milhares de reais": "  65,076.80 ",
+                "Despesa Liquidada em milhares de reais": "  58,217.75 ",
+                "Despesa Paga em milhares de reais": "  55,528.86 "
+            },
+            {
+                "ANO": "2018",
+                "CRE": "6ª",
+                "Despesa Autorizada Inicial": "  52,306,231.00 ",
+                "Despesa Autorizada Final": "  68,596,729.86 ",
+                "Poder de Gasto": "  68,594,729.86 ",
+                "Despesa Empenhada": "  60,107,223.55 ",
+                "Despesa Liquidada": "  55,251,328.82 ",
+                "Despesa Paga": "  50,146,793.21 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  52,306.23 ",
+                "Despesa Autorizada Final em milhares de reais": "  68,596.73 ",
+                "Poder de Gasto em milhares de reais": "  68,594.73 ",
+                "Despesa Empenhada em milhares de reais": "  60,107.22 ",
+                "Despesa Liquidada em milhares de reais": "  55,251.33 ",
+                "Despesa Paga em milhares de reais": "  50,146.79 "
+            },
+            {
+                "ANO": "2018",
+                "CRE": "7ª",
+                "Despesa Autorizada Inicial": "  73,026,021.00 ",
+                "Despesa Autorizada Final": "  110,628,565.70 ",
+                "Poder de Gasto": "  110,622,897.70 ",
+                "Despesa Empenhada": "  106,716,524.63 ",
+                "Despesa Liquidada": "  102,153,263.88 ",
+                "Despesa Paga": "  93,388,036.15 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  73,026.02 ",
+                "Despesa Autorizada Final em milhares de reais": "  110,628.57 ",
+                "Poder de Gasto em milhares de reais": "  110,622.90 ",
+                "Despesa Empenhada em milhares de reais": "  106,716.52 ",
+                "Despesa Liquidada em milhares de reais": "  102,153.26 ",
+                "Despesa Paga em milhares de reais": "  93,388.04 "
+            },
+            {
+                "ANO": "2018",
+                "CRE": "8ª",
+                "Despesa Autorizada Inicial": "  84,406,917.00 ",
+                "Despesa Autorizada Final": "  122,105,435.49 ",
+                "Poder de Gasto": "  122,101,435.49 ",
+                "Despesa Empenhada": "  106,820,130.94 ",
+                "Despesa Liquidada": "  98,149,624.28 ",
+                "Despesa Paga": "  87,496,937.54 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  84,406.92 ",
+                "Despesa Autorizada Final em milhares de reais": "  122,105.44 ",
+                "Poder de Gasto em milhares de reais": "  122,101.44 ",
+                "Despesa Empenhada em milhares de reais": "  106,820.13 ",
+                "Despesa Liquidada em milhares de reais": "  98,149.62 ",
+                "Despesa Paga em milhares de reais": "  87,496.94 "
+            },
+            {
+                "ANO": "2018",
+                "CRE": "9ª",
+                "Despesa Autorizada Inicial": "  94,000,490.00 ",
+                "Despesa Autorizada Final": "  131,347,778.64 ",
+                "Poder de Gasto": "  131,343,944.64 ",
+                "Despesa Empenhada": "  127,907,685.45 ",
+                "Despesa Liquidada": "  120,662,596.76 ",
+                "Despesa Paga": "  107,222,334.07 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  94,000.49 ",
+                "Despesa Autorizada Final em milhares de reais": "  131,347.78 ",
+                "Poder de Gasto em milhares de reais": "  131,343.94 ",
+                "Despesa Empenhada em milhares de reais": "  127,907.69 ",
+                "Despesa Liquidada em milhares de reais": "  120,662.60 ",
+                "Despesa Paga em milhares de reais": "  107,222.33 "
+            },
+            {
+                "ANO": "2018",
+                "CRE": "10ª",
+                "Despesa Autorizada Inicial": "  138,417,922.00 ",
+                "Despesa Autorizada Final": "  192,715,353.67 ",
+                "Poder de Gasto": "  192,711,519.67 ",
+                "Despesa Empenhada": "  189,565,426.90 ",
+                "Despesa Liquidada": "  181,848,737.24 ",
+                "Despesa Paga": "  165,039,315.80 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  138,417.92 ",
+                "Despesa Autorizada Final em milhares de reais": "  192,715.35 ",
+                "Poder de Gasto em milhares de reais": "  192,711.52 ",
+                "Despesa Empenhada em milhares de reais": "  189,565.43 ",
+                "Despesa Liquidada em milhares de reais": "  181,848.74 ",
+                "Despesa Paga em milhares de reais": "  165,039.32 "
+            },
+            {
+                "ANO": "2018",
+                "CRE": "Ed.Física na Ed.Básica",
+                "Despesa Autorizada Inicial": "  49,390,308.00 ",
+                "Despesa Autorizada Final": "  49,390,308.00 ",
+                "Poder de Gasto": "  49,390,308.00 ",
+                "Despesa Empenhada": "  38,792,526.98 ",
+                "Despesa Liquidada": "  28,695,748.61 ",
+                "Despesa Paga": "  25,975,804.60 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  49,390.31 ",
+                "Despesa Autorizada Final em milhares de reais": "  49,390.31 ",
+                "Poder de Gasto em milhares de reais": "  49,390.31 ",
+                "Despesa Empenhada em milhares de reais": "  38,792.53 ",
+                "Despesa Liquidada em milhares de reais": "  28,695.75 ",
+                "Despesa Paga em milhares de reais": "  25,975.80 "
+            },
+            {
+                "ANO": "2018",
+                "CRE": "11ª",
+                "Despesa Autorizada Inicial": "  20,793,291.00 ",
+                "Despesa Autorizada Final": "  28,034,969.44 ",
+                "Poder de Gasto": "  28,032,135.44 ",
+                "Despesa Empenhada": "  25,809,417.20 ",
+                "Despesa Liquidada": "  23,930,745.30 ",
+                "Despesa Paga": "  22,738,344.17 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  20,793.29 ",
+                "Despesa Autorizada Final em milhares de reais": "  28,034.97 ",
+                "Poder de Gasto em milhares de reais": "  28,032.14 ",
+                "Despesa Empenhada em milhares de reais": "  25,809.42 ",
+                "Despesa Liquidada em milhares de reais": "  23,930.75 ",
+                "Despesa Paga em milhares de reais": "  22,738.34 "
+            },
+            {
+                "ANO": "2018",
+                "CRE": "Total",
+                "Despesa Autorizada Inicial": "  6,704,844,085.00 ",
+                "Despesa Autorizada Final": "  7,113,826,286.27 ",
+                "Poder de Gasto": "  7,094,053,309.33 ",
+                "Despesa Empenhada": "  6,372,190,122.35 ",
+                "Despesa Liquidada": "  6,300,342,464.01 ",
+                "Despesa Paga": "  5,803,394,715.44 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  6,704,844.08 ",
+                "Despesa Autorizada Final em milhares de reais": "  7,113,826.29 ",
+                "Poder de Gasto em milhares de reais": "  7,094,053.31 ",
+                "Despesa Empenhada em milhares de reais": "  6,372,190.12 ",
+                "Despesa Liquidada em milhares de reais": "  6,300,342.46 ",
+                "Despesa Paga em milhares de reais": "  5,803,394.72 "
+            },
+            {
+                "ANO": "2019",
+                "CRE": "Gabinete",
+                "Despesa Autorizada Inicial": "  5,952,757,393.00 ",
+                "Despesa Autorizada Final": "  6,052,238,117.88 ",
+                "Poder de Gasto": "  6,048,854,543.88 ",
+                "Despesa Empenhada": "  5,981,392,421.62 ",
+                "Despesa Liquidada": "  5,972,809,836.27 ",
+                "Despesa Paga": "  5,501,095,638.36 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  5,952,757.39 ",
+                "Despesa Autorizada Final em milhares de reais": "  6,052,238.12 ",
+                "Poder de Gasto em milhares de reais": "  6,048,854.54 ",
+                "Despesa Empenhada em milhares de reais": "  5,981,392.42 ",
+                "Despesa Liquidada em milhares de reais": "  5,972,809.84 ",
+                "Despesa Paga em milhares de reais": "  5,501,095.64 "
+            },
+            {
+                "ANO": "2019",
+                "CRE": "1ª",
+                "Despesa Autorizada Inicial": "  39,287,565.00 ",
+                "Despesa Autorizada Final": "  45,465,063.59 ",
+                "Poder de Gasto": "  45,465,063.59 ",
+                "Despesa Empenhada": "  43,822,018.67 ",
+                "Despesa Liquidada": "  42,100,889.83 ",
+                "Despesa Paga": "  35,654,798.19 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  39,287.57 ",
+                "Despesa Autorizada Final em milhares de reais": "  45,465.06 ",
+                "Poder de Gasto em milhares de reais": "  45,465.06 ",
+                "Despesa Empenhada em milhares de reais": "  43,822.02 ",
+                "Despesa Liquidada em milhares de reais": "  42,100.89 ",
+                "Despesa Paga em milhares de reais": "  35,654.80 "
+            },
+            {
+                "ANO": "2019",
+                "CRE": "2ª",
+                "Despesa Autorizada Inicial": "  64,810,933.00 ",
+                "Despesa Autorizada Final": "  97,465,650.96 ",
+                "Poder de Gasto": "  97,465,650.96 ",
+                "Despesa Empenhada": "  94,320,928.37 ",
+                "Despesa Liquidada": "  90,730,579.36 ",
+                "Despesa Paga": "  76,913,628.06 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  64,810.93 ",
+                "Despesa Autorizada Final em milhares de reais": "  97,465.65 ",
+                "Poder de Gasto em milhares de reais": "  97,465.65 ",
+                "Despesa Empenhada em milhares de reais": "  94,320.93 ",
+                "Despesa Liquidada em milhares de reais": "  90,730.58 ",
+                "Despesa Paga em milhares de reais": "  76,913.63 "
+            },
+            {
+                "ANO": "2019",
+                "CRE": "3ª",
+                "Despesa Autorizada Inicial": "  65,828,040.00 ",
+                "Despesa Autorizada Final": "  87,409,837.58 ",
+                "Poder de Gasto": "  87,409,837.58 ",
+                "Despesa Empenhada": "  83,203,113.30 ",
+                "Despesa Liquidada": "  83,067,980.50 ",
+                "Despesa Paga": "  68,470,040.19 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  65,828.04 ",
+                "Despesa Autorizada Final em milhares de reais": "  87,409.84 ",
+                "Poder de Gasto em milhares de reais": "  87,409.84 ",
+                "Despesa Empenhada em milhares de reais": "  83,203.11 ",
+                "Despesa Liquidada em milhares de reais": "  83,067.98 ",
+                "Despesa Paga em milhares de reais": "  68,470.04 "
+            },
+            {
+                "ANO": "2019",
+                "CRE": "4ª",
+                "Despesa Autorizada Inicial": "  80,088,296.00 ",
+                "Despesa Autorizada Final": "  104,320,638.92 ",
+                "Poder de Gasto": "  104,320,638.92 ",
+                "Despesa Empenhada": "  100,451,272.96 ",
+                "Despesa Liquidada": "  98,482,998.35 ",
+                "Despesa Paga": "  82,552,974.40 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  80,088.30 ",
+                "Despesa Autorizada Final em milhares de reais": "  104,320.64 ",
+                "Poder de Gasto em milhares de reais": "  104,320.64 ",
+                "Despesa Empenhada em milhares de reais": "  100,451.27 ",
+                "Despesa Liquidada em milhares de reais": "  98,482.10 ",
+                "Despesa Paga em milhares de reais": "  82,552.97 "
+            },
+            {
+                "ANO": "2019",
+                "CRE": "5ª",
+                "Despesa Autorizada Inicial": "  62,576,757.00 ",
+                "Despesa Autorizada Final": "  64,811,314.54 ",
+                "Poder de Gasto": "  64,811,314.54 ",
+                "Despesa Empenhada": "  61,161,232.37 ",
+                "Despesa Liquidada": "  61,110,543.62 ",
+                "Despesa Paga": "  50,189,004.36 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  62,576.76 ",
+                "Despesa Autorizada Final em milhares de reais": "  64,811.31 ",
+                "Poder de Gasto em milhares de reais": "  64,811.31 ",
+                "Despesa Empenhada em milhares de reais": "  61,161.23 ",
+                "Despesa Liquidada em milhares de reais": "  61,110.54 ",
+                "Despesa Paga em milhares de reais": "  50,189.00 "
+            },
+            {
+                "ANO": "2019",
+                "CRE": "6ª",
+                "Despesa Autorizada Inicial": "  54,478,271.00 ",
+                "Despesa Autorizada Final": "  64,282,247.44 ",
+                "Poder de Gasto": "  64,282,247.44 ",
+                "Despesa Empenhada": "  60,209,602.13 ",
+                "Despesa Liquidada": "  58,867,015.90 ",
+                "Despesa Paga": "  48,725,525.72 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  54,478.27 ",
+                "Despesa Autorizada Final em milhares de reais": "  64,282.25 ",
+                "Poder de Gasto em milhares de reais": "  64,282.25 ",
+                "Despesa Empenhada em milhares de reais": "  60,209.60 ",
+                "Despesa Liquidada em milhares de reais": "  58,867.02 ",
+                "Despesa Paga em milhares de reais": "  48,725.53 "
+            },
+            {
+                "ANO": "2019",
+                "CRE": "7ª",
+                "Despesa Autorizada Inicial": "  75,424,924.00 ",
+                "Despesa Autorizada Final": "  106,889,264.11 ",
+                "Poder de Gasto": "  106,889,264.11 ",
+                "Despesa Empenhada": "  102,407,644.86 ",
+                "Despesa Liquidada": "  99,019,760.10 ",
+                "Despesa Paga": "  84,852,489.43 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  75,424.92 ",
+                "Despesa Autorizada Final em milhares de reais": "  106,889.26 ",
+                "Poder de Gasto em milhares de reais": "  106,889.26 ",
+                "Despesa Empenhada em milhares de reais": "  102,407.64 ",
+                "Despesa Liquidada em milhares de reais": "  99,019.76 ",
+                "Despesa Paga em milhares de reais": "  84,852.49 "
+            },
+            {
+                "ANO": "2019",
+                "CRE": "8ª",
+                "Despesa Autorizada Inicial": "  87,380,530.00 ",
+                "Despesa Autorizada Final": "  112,758,865.54 ",
+                "Poder de Gasto": "  112,758,865.54 ",
+                "Despesa Empenhada": "  107,491,509.71 ",
+                "Despesa Liquidada": "  103,584,930.19 ",
+                "Despesa Paga": "  83,559,590.15 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  87,380.53 ",
+                "Despesa Autorizada Final em milhares de reais": "  112,758.87 ",
+                "Poder de Gasto em milhares de reais": "  112,758.87 ",
+                "Despesa Empenhada em milhares de reais": "  107,491.51 ",
+                "Despesa Liquidada em milhares de reais": "  103,584.93 ",
+                "Despesa Paga em milhares de reais": "  83,559.59 "
+            },
+            {
+                "ANO": "2019",
+                "CRE": "9ª",
+                "Despesa Autorizada Inicial": "  100,217,591.00 ",
+                "Despesa Autorizada Final": "  127,007,344.09 ",
+                "Poder de Gasto": "  127,007,344.09 ",
+                "Despesa Empenhada": "  120,019,902.02 ",
+                "Despesa Liquidada": "  117,671,781.14 ",
+                "Despesa Paga": "  96,974,061.82 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  100,217.59 ",
+                "Despesa Autorizada Final em milhares de reais": "  127,007.34 ",
+                "Poder de Gasto em milhares de reais": "  127,007.34 ",
+                "Despesa Empenhada em milhares de reais": "  120,019.90 ",
+                "Despesa Liquidada em milhares de reais": "  117,671.78 ",
+                "Despesa Paga em milhares de reais": "  96,974.06 "
+            },
+            {
+                "ANO": "2019",
+                "CRE": "10ª",
+                "Despesa Autorizada Inicial": "  142,712,213.00 ",
+                "Despesa Autorizada Final": "  198,451,685.94 ",
+                "Poder de Gasto": "  198,451,685.94 ",
+                "Despesa Empenhada": "  190,898,317.09 ",
+                "Despesa Liquidada": "  187,240,348.07 ",
+                "Despesa Paga": "  152,168,278.03 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  142,712.21 ",
+                "Despesa Autorizada Final em milhares de reais": "  198,451.69 ",
+                "Poder de Gasto em milhares de reais": "  198,451.69 ",
+                "Despesa Empenhada em milhares de reais": "  190,898.32 ",
+                "Despesa Liquidada em milhares de reais": "  187,240.35 ",
+                "Despesa Paga em milhares de reais": "  152,168.28 "
+            },
+            {
+                "ANO": "2019",
+                "CRE": "Ed.Física na Ed.Básica",
+                "Despesa Autorizada Inicial": "  36,835,256.00 ",
+                "Despesa Autorizada Final": "  39,867,571.30 ",
+                "Poder de Gasto": "  39,867,571.30 ",
+                "Despesa Empenhada": "  39,867,571.30 ",
+                "Despesa Liquidada": "  29,486,258.99 ",
+                "Despesa Paga": "  24,145,533.55 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  36,835.26 ",
+                "Despesa Autorizada Final em milhares de reais": "  39,867.57 ",
+                "Poder de Gasto em milhares de reais": "  39,867.57 ",
+                "Despesa Empenhada em milhares de reais": "  39,867.57 ",
+                "Despesa Liquidada em milhares de reais": "  29,486.26 ",
+                "Despesa Paga em milhares de reais": "  24,145.53 "
+            },
+            {
+                "ANO": "2019",
+                "CRE": "11ª",
+                "Despesa Autorizada Inicial": "  21,287,021.00 ",
+                "Despesa Autorizada Final": "  27,846,802.86 ",
+                "Poder de Gasto": "  27,846,802.86 ",
+                "Despesa Empenhada": "  26,145,996.95 ",
+                "Despesa Liquidada": "  26,135,408.06 ",
+                "Despesa Paga": "  22,408,689.06 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  21,287.02 ",
+                "Despesa Autorizada Final em milhares de reais": "  27,846.80 ",
+                "Poder de Gasto em milhares de reais": "  27,846.80 ",
+                "Despesa Empenhada em milhares de reais": "  26,145.10 ",
+                "Despesa Liquidada em milhares de reais": "  26,135.41 ",
+                "Despesa Paga em milhares de reais": "  22,408.69 "
+            },
+            {
+                "ANO": "2019",
+                "CRE": "Total",
+                "Despesa Autorizada Inicial": "  6,783,684,790.00 ",
+                "Despesa Autorizada Final": "  7,128,814,404.75 ",
+                "Poder de Gasto": "  7,125,430,830.75 ",
+                "Despesa Empenhada": "  7,011,391,531.35 ",
+                "Despesa Liquidada": "  6,970,308,330.38 ",
+                "Despesa Paga": "  6,327,710,251.32 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  6,783,684.79 ",
+                "Despesa Autorizada Final em milhares de reais": "  7,128,814.40 ",
+                "Poder de Gasto em milhares de reais": "  7,125,430.83 ",
+                "Despesa Empenhada em milhares de reais": "  7,011,391.53 ",
+                "Despesa Liquidada em milhares de reais": "  6,970,308.33 ",
+                "Despesa Paga em milhares de reais": "  6,327,710.25 "
+            },
+            {
+                "ANO": "2020",
+                "CRE": "Gabinete",
+                "Despesa Autorizada Inicial": "  6,553,797,249.00 ",
+                "Despesa Autorizada Final": "  6,609,882,514.55 ",
+                "Poder de Gasto": "  6,550,617,362.02 ",
+                "Despesa Empenhada": "  6,387,766,036.15 ",
+                "Despesa Liquidada": "  6,306,202,711.57 ",
+                "Despesa Paga": "  5,421,195,644.70 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  6,553,797.25 ",
+                "Despesa Autorizada Final em milhares de reais": "  6,609,882.51 ",
+                "Poder de Gasto em milhares de reais": "  6,550,617.36 ",
+                "Despesa Empenhada em milhares de reais": "  6,387,766.04 ",
+                "Despesa Liquidada em milhares de reais": "  6,306,202.71 ",
+                "Despesa Paga em milhares de reais": "  5,421,195.64 "
+            },
+            {
+                "ANO": "2020",
+                "CRE": "1ª",
+                "Despesa Autorizada Inicial": "  42,639,599.00 ",
+                "Despesa Autorizada Final": "  33,723,627.26 ",
+                "Poder de Gasto": "  31,406,593.26 ",
+                "Despesa Empenhada": "  25,142,157.78 ",
+                "Despesa Liquidada": "  17,851,289.55 ",
+                "Despesa Paga": "  15,074,560.33 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  42,639.60 ",
+                "Despesa Autorizada Final em milhares de reais": "  33,723.63 ",
+                "Poder de Gasto em milhares de reais": "  31,406.59 ",
+                "Despesa Empenhada em milhares de reais": "  25,142.16 ",
+                "Despesa Liquidada em milhares de reais": "  17,851.29 ",
+                "Despesa Paga em milhares de reais": "  15,074.56 "
+            },
+            {
+                "ANO": "2020",
+                "CRE": "2ª",
+                "Despesa Autorizada Inicial": "  69,689,544.00 ",
+                "Despesa Autorizada Final": "  80,488,024.75 ",
+                "Poder de Gasto": "  66,299,020.75 ",
+                "Despesa Empenhada": "  60,619,886.23 ",
+                "Despesa Liquidada": "  49,930,608.11 ",
+                "Despesa Paga": "  42,413,700.56 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  69,689.54 ",
+                "Despesa Autorizada Final em milhares de reais": "  80,488.02 ",
+                "Poder de Gasto em milhares de reais": "  66,299.02 ",
+                "Despesa Empenhada em milhares de reais": "  60,619.89 ",
+                "Despesa Liquidada em milhares de reais": "  49,930.61 ",
+                "Despesa Paga em milhares de reais": "  42,413.70 "
+            },
+            {
+                "ANO": "2020",
+                "CRE": "3ª",
+                "Despesa Autorizada Inicial": "  67,832,715.00 ",
+                "Despesa Autorizada Final": "  68,896,375.22 ",
+                "Poder de Gasto": "  62,993,261.22 ",
+                "Despesa Empenhada": "  55,535,679.73 ",
+                "Despesa Liquidada": "  47,454,740.48 ",
+                "Despesa Paga": "  44,178,359.04 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  67,832.71 ",
+                "Despesa Autorizada Final em milhares de reais": "  68,896.38 ",
+                "Poder de Gasto em milhares de reais": "  62,993.26 ",
+                "Despesa Empenhada em milhares de reais": "  55,535.68 ",
+                "Despesa Liquidada em milhares de reais": "  47,454.74 ",
+                "Despesa Paga em milhares de reais": "  44,178.36 "
+            },
+            {
+                "ANO": "2020",
+                "CRE": "4ª",
+                "Despesa Autorizada Inicial": "  95,117,134.00 ",
+                "Despesa Autorizada Final": "  88,487,839.26 ",
+                "Poder de Gasto": "  74,594,021.26 ",
+                "Despesa Empenhada": "  63,716,319.04 ",
+                "Despesa Liquidada": "  53,522,443.03 ",
+                "Despesa Paga": "  48,865,166.69 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  95,117.13 ",
+                "Despesa Autorizada Final em milhares de reais": "  88,487.84 ",
+                "Poder de Gasto em milhares de reais": "  74,594.02 ",
+                "Despesa Empenhada em milhares de reais": "  63,716.32 ",
+                "Despesa Liquidada em milhares de reais": "  53,522.44 ",
+                "Despesa Paga em milhares de reais": "  48,865.17 "
+            },
+            {
+                "ANO": "2020",
+                "CRE": "5ª",
+                "Despesa Autorizada Inicial": "  67,800,559.00 ",
+                "Despesa Autorizada Final": "  48,962,575.77 ",
+                "Poder de Gasto": "  41,236,335.77 ",
+                "Despesa Empenhada": "  33,362,607.81 ",
+                "Despesa Liquidada": "  26,713,825.63 ",
+                "Despesa Paga": "  24,357,076.27 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  67,800.56 ",
+                "Despesa Autorizada Final em milhares de reais": "  48,962.58 ",
+                "Poder de Gasto em milhares de reais": "  41,236.34 ",
+                "Despesa Empenhada em milhares de reais": "  33,362.61 ",
+                "Despesa Liquidada em milhares de reais": "  26,713.83 ",
+                "Despesa Paga em milhares de reais": "  24,357.08 "
+            },
+            {
+                "ANO": "2020",
+                "CRE": "6ª",
+                "Despesa Autorizada Inicial": "  59,394,434.00 ",
+                "Despesa Autorizada Final": "  48,306,617.65 ",
+                "Poder de Gasto": "  43,609,999.65 ",
+                "Despesa Empenhada": "  35,193,069.80 ",
+                "Despesa Liquidada": "  28,320,130.23 ",
+                "Despesa Paga": "  24,886,697.85 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  59,394.43 ",
+                "Despesa Autorizada Final em milhares de reais": "  48,306.62 ",
+                "Poder de Gasto em milhares de reais": "  43,609.10 ",
+                "Despesa Empenhada em milhares de reais": "  35,193.07 ",
+                "Despesa Liquidada em milhares de reais": "  28,320.13 ",
+                "Despesa Paga em milhares de reais": "  24,886.70 "
+            },
+            {
+                "ANO": "2020",
+                "CRE": "7ª",
+                "Despesa Autorizada Inicial": "  73,878,689.00 ",
+                "Despesa Autorizada Final": "  67,239,114.24 ",
+                "Poder de Gasto": "  61,649,109.24 ",
+                "Despesa Empenhada": "  54,261,789.47 ",
+                "Despesa Liquidada": "  40,914,702.11 ",
+                "Despesa Paga": "  35,178,515.39 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  73,878.69 ",
+                "Despesa Autorizada Final em milhares de reais": "  67,239.11 ",
+                "Poder de Gasto em milhares de reais": "  61,649.11 ",
+                "Despesa Empenhada em milhares de reais": "  54,261.79 ",
+                "Despesa Liquidada em milhares de reais": "  40,914.70 ",
+                "Despesa Paga em milhares de reais": "  35,178.52 "
+            },
+            {
+                "ANO": "2020",
+                "CRE": "8ª",
+                "Despesa Autorizada Inicial": "  97,729,169.00 ",
+                "Despesa Autorizada Final": "  80,152,419.54 ",
+                "Poder de Gasto": "  73,504,965.54 ",
+                "Despesa Empenhada": "  57,690,203.31 ",
+                "Despesa Liquidada": "  44,190,266.86 ",
+                "Despesa Paga": "  39,032,407.04 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  97,729.17 ",
+                "Despesa Autorizada Final em milhares de reais": "  80,152.42 ",
+                "Poder de Gasto em milhares de reais": "  73,504.97 ",
+                "Despesa Empenhada em milhares de reais": "  57,690.20 ",
+                "Despesa Liquidada em milhares de reais": "  44,190.27 ",
+                "Despesa Paga em milhares de reais": "  39,032.41 "
+            },
+            {
+                "ANO": "2020",
+                "CRE": "9ª",
+                "Despesa Autorizada Inicial": "  102,022,212.00 ",
+                "Despesa Autorizada Final": "  79,032,813.19 ",
+                "Poder de Gasto": "  62,669,326.19 ",
+                "Despesa Empenhada": "  57,846,754.93 ",
+                "Despesa Liquidada": "  43,358,823.89 ",
+                "Despesa Paga": "  41,641,650.84 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  102,022.21 ",
+                "Despesa Autorizada Final em milhares de reais": "  79,032.81 ",
+                "Poder de Gasto em milhares de reais": "  62,669.33 ",
+                "Despesa Empenhada em milhares de reais": "  57,846.75 ",
+                "Despesa Liquidada em milhares de reais": "  43,358.82 ",
+                "Despesa Paga em milhares de reais": "  41,641.65 "
+            },
+            {
+                "ANO": "2020",
+                "CRE": "10ª",
+                "Despesa Autorizada Inicial": "  136,554,404.00 ",
+                "Despesa Autorizada Final": "  142,798,903.80 ",
+                "Poder de Gasto": "  120,120,287.80 ",
+                "Despesa Empenhada": "  103,045,549.92 ",
+                "Despesa Liquidada": "  96,269,424.45 ",
+                "Despesa Paga": "  87,140,662.45 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  136,554.40 ",
+                "Despesa Autorizada Final em milhares de reais": "  142,798.90 ",
+                "Poder de Gasto em milhares de reais": "  120,120.29 ",
+                "Despesa Empenhada em milhares de reais": "  103,045.55 ",
+                "Despesa Liquidada em milhares de reais": "  96,269.42 ",
+                "Despesa Paga em milhares de reais": "  87,140.66 "
+            },
+            {
+                "ANO": "2020",
+                "CRE": "Ed.Física na Ed.Básica",
+                "Despesa Autorizada Inicial": "  33,568,116.00 ",
+                "Despesa Autorizada Final": "  42,083,608.00 ",
+                "Poder de Gasto": "  42,083,608.00 ",
+                "Despesa Empenhada": "  42,006,037.12 ",
+                "Despesa Liquidada": "  31,164,109.59 ",
+                "Despesa Paga": "  31,164,109.59 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  33,568.12 ",
+                "Despesa Autorizada Final em milhares de reais": "  42,083.61 ",
+                "Poder de Gasto em milhares de reais": "  42,083.61 ",
+                "Despesa Empenhada em milhares de reais": "  42,006.04 ",
+                "Despesa Liquidada em milhares de reais": "  31,164.11 ",
+                "Despesa Paga em milhares de reais": "  31,164.11 "
+            },
+            {
+                "ANO": "2020",
+                "CRE": "11ª",
+                "Despesa Autorizada Inicial": "  27,538,356.00 ",
+                "Despesa Autorizada Final": "  21,104,924.01 ",
+                "Poder de Gasto": "  19,937,385.01 ",
+                "Despesa Empenhada": "  15,523,457.69 ",
+                "Despesa Liquidada": "  13,136,384.80 ",
+                "Despesa Paga": "  12,619,262.43 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  27,538.36 ",
+                "Despesa Autorizada Final em milhares de reais": "  21,104.92 ",
+                "Poder de Gasto em milhares de reais": "  19,937.39 ",
+                "Despesa Empenhada em milhares de reais": "  15,523.46 ",
+                "Despesa Liquidada em milhares de reais": "  13,136.38 ",
+                "Despesa Paga em milhares de reais": "  12,619.26 "
+            },
+            {
+                "ANO": "2020",
+                "CRE": "Total",
+                "Despesa Autorizada Inicial": "  7,427,562,180.00 ",
+                "Despesa Autorizada Final": "  7,411,159,357.24 ",
+                "Poder de Gasto": "  7,250,721,275.71 ",
+                "Despesa Empenhada": "  6,991,709,548.98 ",
+                "Despesa Liquidada": "  6,799,029,460.30 ",
+                "Despesa Paga": "  5,867,747,813.18 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  7,427,562.18 ",
+                "Despesa Autorizada Final em milhares de reais": "  7,411,159.36 ",
+                "Poder de Gasto em milhares de reais": "  7,250,721.28 ",
+                "Despesa Empenhada em milhares de reais": "  6,991,709.55 ",
+                "Despesa Liquidada em milhares de reais": "  6,799,029.46 ",
+                "Despesa Paga em milhares de reais": "  5,867,747.81 "
+            },
+            {
+                "ANO": "2021",
+                "CRE": "Gabinete",
+                "Despesa Autorizada Inicial": "  6,405,270,439.00 ",
+                "Despesa Autorizada Final": "  6,778,203,996.26 ",
+                "Poder de Gasto": "  6,778,203,995.76 ",
+                "Despesa Empenhada": "  6,715,725,298.89 ",
+                "Despesa Liquidada": "  6,412,713,160.77 ",
+                "Despesa Paga": "  5,816,796,098.29 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  6,405,270.44 ",
+                "Despesa Autorizada Final em milhares de reais": "  6,778,203.10 ",
+                "Poder de Gasto em milhares de reais": "  6,778,203.10 ",
+                "Despesa Empenhada em milhares de reais": "  6,715,725.30 ",
+                "Despesa Liquidada em milhares de reais": "  6,412,713.16 ",
+                "Despesa Paga em milhares de reais": "  5,816,796.10 "
+            },
+            {
+                "ANO": "2021",
+                "CRE": "1ª",
+                "Despesa Autorizada Inicial": "  29,211,712.00 ",
+                "Despesa Autorizada Final": "  63,086,523.04 ",
+                "Poder de Gasto": "  63,086,523.04 ",
+                "Despesa Empenhada": "  59,656,461.25 ",
+                "Despesa Liquidada": "  43,065,514.95 ",
+                "Despesa Paga": "  34,918,097.74 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  29,211.71 ",
+                "Despesa Autorizada Final em milhares de reais": "  63,086.52 ",
+                "Poder de Gasto em milhares de reais": "  63,086.52 ",
+                "Despesa Empenhada em milhares de reais": "  59,656.46 ",
+                "Despesa Liquidada em milhares de reais": "  43,065.51 ",
+                "Despesa Paga em milhares de reais": "  34,918.10 "
+            },
+            {
+                "ANO": "2021",
+                "CRE": "2ª",
+                "Despesa Autorizada Inicial": "  53,503,443.00 ",
+                "Despesa Autorizada Final": "  140,260,681.79 ",
+                "Poder de Gasto": "  140,260,681.79 ",
+                "Despesa Empenhada": "  122,411,608.76 ",
+                "Despesa Liquidada": "  98,944,618.07 ",
+                "Despesa Paga": "  84,328,423.02 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  53,503.44 ",
+                "Despesa Autorizada Final em milhares de reais": "  140,260.68 ",
+                "Poder de Gasto em milhares de reais": "  140,260.68 ",
+                "Despesa Empenhada em milhares de reais": "  122,411.61 ",
+                "Despesa Liquidada em milhares de reais": "  98,944.62 ",
+                "Despesa Paga em milhares de reais": "  84,328.42 "
+            },
+            {
+                "ANO": "2021",
+                "CRE": "3ª",
+                "Despesa Autorizada Inicial": "  53,599,862.00 ",
+                "Despesa Autorizada Final": "  114,519,873.66 ",
+                "Poder de Gasto": "  114,519,873.66 ",
+                "Despesa Empenhada": "  104,443,957.58 ",
+                "Despesa Liquidada": "  89,722,680.48 ",
+                "Despesa Paga": "  75,230,421.61 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  53,599.86 ",
+                "Despesa Autorizada Final em milhares de reais": "  114,519.87 ",
+                "Poder de Gasto em milhares de reais": "  114,519.87 ",
+                "Despesa Empenhada em milhares de reais": "  104,443.96 ",
+                "Despesa Liquidada em milhares de reais": "  89,722.68 ",
+                "Despesa Paga em milhares de reais": "  75,230.42 "
+            },
+            {
+                "ANO": "2021",
+                "CRE": "4ª",
+                "Despesa Autorizada Inicial": "  64,254,529.00 ",
+                "Despesa Autorizada Final": "  151,529,870.87 ",
+                "Poder de Gasto": "  151,529,870.87 ",
+                "Despesa Empenhada": "  135,523,612.67 ",
+                "Despesa Liquidada": "  115,376,922.81 ",
+                "Despesa Paga": "  98,085,365.73 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  64,254.53 ",
+                "Despesa Autorizada Final em milhares de reais": "  151,529.87 ",
+                "Poder de Gasto em milhares de reais": "  151,529.87 ",
+                "Despesa Empenhada em milhares de reais": "  135,523.61 ",
+                "Despesa Liquidada em milhares de reais": "  115,376.92 ",
+                "Despesa Paga em milhares de reais": "  98,085.37 "
+            },
+            {
+                "ANO": "2021",
+                "CRE": "5ª",
+                "Despesa Autorizada Inicial": "  46,202,940.00 ",
+                "Despesa Autorizada Final": "  85,593,025.51 ",
+                "Poder de Gasto": "  85,593,025.51 ",
+                "Despesa Empenhada": "  80,691,849.14 ",
+                "Despesa Liquidada": "  64,095,460.48 ",
+                "Despesa Paga": "  56,147,962.54 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  46,202.94 ",
+                "Despesa Autorizada Final em milhares de reais": "  85,593.03 ",
+                "Poder de Gasto em milhares de reais": "  85,593.03 ",
+                "Despesa Empenhada em milhares de reais": "  80,691.85 ",
+                "Despesa Liquidada em milhares de reais": "  64,095.46 ",
+                "Despesa Paga em milhares de reais": "  56,147.96 "
+            },
+            {
+                "ANO": "2021",
+                "CRE": "6ª",
+                "Despesa Autorizada Inicial": "  32,126,105.00 ",
+                "Despesa Autorizada Final": "  90,448,145.71 ",
+                "Poder de Gasto": "  90,448,145.71 ",
+                "Despesa Empenhada": "  78,407,976.16 ",
+                "Despesa Liquidada": "  63,952,502.75 ",
+                "Despesa Paga": "  46,206,651.23 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  32,126.10 ",
+                "Despesa Autorizada Final em milhares de reais": "  90,448.15 ",
+                "Poder de Gasto em milhares de reais": "  90,448.15 ",
+                "Despesa Empenhada em milhares de reais": "  78,407.98 ",
+                "Despesa Liquidada em milhares de reais": "  63,952.50 ",
+                "Despesa Paga em milhares de reais": "  46,206.65 "
+            },
+            {
+                "ANO": "2021",
+                "CRE": "7ª",
+                "Despesa Autorizada Inicial": "  60,758,274.00 ",
+                "Despesa Autorizada Final": "  136,887,817.27 ",
+                "Poder de Gasto": "  136,887,817.27 ",
+                "Despesa Empenhada": "  132,976,526.17 ",
+                "Despesa Liquidada": "  103,814,531.81 ",
+                "Despesa Paga": "  90,456,639.43 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  60,758.27 ",
+                "Despesa Autorizada Final em milhares de reais": "  136,887.82 ",
+                "Poder de Gasto em milhares de reais": "  136,887.82 ",
+                "Despesa Empenhada em milhares de reais": "  132,976.53 ",
+                "Despesa Liquidada em milhares de reais": "  103,814.53 ",
+                "Despesa Paga em milhares de reais": "  90,456.64 "
+            },
+            {
+                "ANO": "2021",
+                "CRE": "8ª",
+                "Despesa Autorizada Inicial": "  72,743,187.00 ",
+                "Despesa Autorizada Final": "  120,401,386.29 ",
+                "Poder de Gasto": "  120,401,386.29 ",
+                "Despesa Empenhada": "  115,606,090.26 ",
+                "Despesa Liquidada": "  92,769,562.78 ",
+                "Despesa Paga": "  78,653,384.93 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  72,743.19 ",
+                "Despesa Autorizada Final em milhares de reais": "  120,401.39 ",
+                "Poder de Gasto em milhares de reais": "  120,401.39 ",
+                "Despesa Empenhada em milhares de reais": "  115,606.09 ",
+                "Despesa Liquidada em milhares de reais": "  92,769.56 ",
+                "Despesa Paga em milhares de reais": "  78,653.38 "
+            },
+            {
+                "ANO": "2021",
+                "CRE": "9ª",
+                "Despesa Autorizada Inicial": "  63,638,928.00 ",
+                "Despesa Autorizada Final": "  127,676,160.26 ",
+                "Poder de Gasto": "  127,676,160.26 ",
+                "Despesa Empenhada": "  115,950,496.03 ",
+                "Despesa Liquidada": "  100,777,405.98 ",
+                "Despesa Paga": "  81,464,563.56 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  63,638.93 ",
+                "Despesa Autorizada Final em milhares de reais": "  127,676.16 ",
+                "Poder de Gasto em milhares de reais": "  127,676.16 ",
+                "Despesa Empenhada em milhares de reais": "  115,950.50 ",
+                "Despesa Liquidada em milhares de reais": "  100,777.41 ",
+                "Despesa Paga em milhares de reais": "  81,464.56 "
+            },
+            {
+                "ANO": "2021",
+                "CRE": "10ª",
+                "Despesa Autorizada Inicial": "  107,187,703.00 ",
+                "Despesa Autorizada Final": "  213,814,568.57 ",
+                "Poder de Gasto": "  213,814,568.57 ",
+                "Despesa Empenhada": "  206,682,065.99 ",
+                "Despesa Liquidada": "  184,581,762.45 ",
+                "Despesa Paga": "  158,100,435.17 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  107,187.70 ",
+                "Despesa Autorizada Final em milhares de reais": "  213,814.57 ",
+                "Poder de Gasto em milhares de reais": "  213,814.57 ",
+                "Despesa Empenhada em milhares de reais": "  206,682.07 ",
+                "Despesa Liquidada em milhares de reais": "  184,581.76 ",
+                "Despesa Paga em milhares de reais": "  158,100.44 "
+            },
+            {
+                "ANO": "2021",
+                "CRE": "Ed.Física na Ed.Básica",
+                "Despesa Autorizada Inicial": "  28,203,608.00 ",
+                "Despesa Autorizada Final": "  31,427,732.83 ",
+                "Poder de Gasto": "  31,427,732.83 ",
+                "Despesa Empenhada": "  31,427,732.83 ",
+                "Despesa Liquidada": "  30,720,891.08 ",
+                "Despesa Paga": "  28,612,907.17 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  28,203.61 ",
+                "Despesa Autorizada Final em milhares de reais": "  31,427.73 ",
+                "Poder de Gasto em milhares de reais": "  31,427.73 ",
+                "Despesa Empenhada em milhares de reais": "  31,427.73 ",
+                "Despesa Liquidada em milhares de reais": "  30,720.89 ",
+                "Despesa Paga em milhares de reais": "  28,612.91 "
+            },
+            {
+                "ANO": "2021",
+                "CRE": "11ª",
+                "Despesa Autorizada Inicial": "  16,847,677.00 ",
+                "Despesa Autorizada Final": "  36,634,111.80 ",
+                "Poder de Gasto": "  36,634,111.80 ",
+                "Despesa Empenhada": "  34,176,553.67 ",
+                "Despesa Liquidada": "  28,068,105.05 ",
+                "Despesa Paga": "  23,457,314.58 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  16,847.68 ",
+                "Despesa Autorizada Final em milhares de reais": "  36,634.11 ",
+                "Poder de Gasto em milhares de reais": "  36,634.11 ",
+                "Despesa Empenhada em milhares de reais": "  34,176.55 ",
+                "Despesa Liquidada em milhares de reais": "  28,068.11 ",
+                "Despesa Paga em milhares de reais": "  23,457.31 "
+            },
+            {
+                "ANO": "2021",
+                "CRE": "Total",
+                "Despesa Autorizada Inicial": "  7,033,548,407.00 ",
+                "Despesa Autorizada Final": "  8,090,483,893.86 ",
+                "Poder de Gasto": "  8,090,483,893.36 ",
+                "Despesa Empenhada": "  7,933,680,229.40 ",
+                "Despesa Liquidada": "  7,428,603,119.46 ",
+                "Despesa Paga": "  6,672,458,265.00 ",
+                "Despesa Autorizada Inicial em milhares de reais": "  7,033,548.41 ",
+                "Despesa Autorizada Final em milhares de reais": "  8,090,483.89 ",
+                "Poder de Gasto em milhares de reais": "  8,090,483.89 ",
+                "Despesa Empenhada em milhares de reais": "  7,933,680.23 ",
+                "Despesa Liquidada em milhares de reais": "  7,428,603.12 ",
+                "Despesa Paga em milhares de reais": "  6,672,458.26 "
+            }
+        ];
+
+        anos = ["2018","2019","2020","2021"];
+        despesas = [
+                "Despesa Autorizada Inicial",
+                "Despesa Autorizada Final",
+                "Poder de Gasto",
+                "Despesa Empenhada",
+                "Despesa Liquidada",
+                "Despesa Paga"];
+
+                origens = [
+                "Total",
+                "Gabinete",
+                "1ª",
+                "2ª",
+                "3ª",
+                "4ª",
+                "5ª",
+                "6ª",
+                "7ª",
+                "8ª",
+                "9ª",
+                "10ª",
+                "11ª",
+                "Ed.Física na Ed.Básica"];
+
+                origensTitulo = [
+                "Total",
+                "Gabinete dp Secretário",
+                "1ª CRE",
+                "2ª CRE",
+                "3ª CRE",
+                "4ª CRE",
+                "5ª CRE",
+                "6ª CRE",
+                "7ª CRE",
+                "8ª CRE",
+                "9ª CRE",
+                "10ª CRE",
+                "11ª CRE",
+                "Ed.Física na Ed.Básica"];
+
+
+            selectClassificacao = document.getElementById("classificacaoDespesa");
+            idxClassificacao = 0;
+            chkMilhares = document.getElementById("chkMilhares");
+            bMilhares = false;
+            if(chkMilhares!==null){
+                bMilhares = chkMilhares.checked;
+            }
+            sClassificacao = despesas[0];
+            if(selectClassificacao!==null){
+                sClassificacao = selectClassificacao.value;
+                if(bMilhares){
+                    sClassificacao = selectClassificacao.value +  " em milhares de reais";
+                }    
+                console.log(sClassificacao);
+            }
+
+            selectOrigem = document.getElementById("origemDespesa");
+            idxOrigem = 0;
+            if(selectOrigem!==null){
+                console.log(selectOrigem.value);
+                idxOrigem = origens.indexOf(selectOrigem.value);
+            }
+            sOrigem = origens[idxOrigem];
+            resultado = {};
+            iTamanho = valores.length;
+            for(var i=0;i<iTamanho;i++){
+                if(valores[i].CRE===sOrigem){
+                    resultado[valores[i].ANO] = valores[i][sClassificacao].trim().replace(/,/g,"");
+                }
+            }
+            dataprovider = [
+						{
+							"category": "2018",
+							"valor": resultado["2018"]
+						},
+						{
+							"category": "2019",
+							"valor": resultado["2019"]
+
+						},
+						{
+							"category": "2020",
+							"valor": resultado["2020"]
+						},
+						{
+							"category": "2021",
+							"valor": resultado["2021"]
+						}
+					]
+            parametros = 
+            {
+					"type": "serial",
+					"categoryField": "category",
+					"startDuration": 1,
+					"decimalSeparator": ",",
+					"handDrawThickness": 0,
+					"precision": 2,
+					"thousandsSeparator": ".",
+					"categoryAxis": {
+						"gridPosition": "start"
+					},
+					"trendLines": [],
+					"graphs": [
+						{
+							"accessibleLabel": "[[value]]",
+							"balloonColor": "#000000",
+							"balloonText": "R$ [[value]]",
+							"bullet": "round",
+							"color": "#000000",
+							"customMarker": "",
+							"fillColors": "#000000",
+							"fontSize": 5,
+							"gapPeriod": 4,
+							"id": "AmGraph-1",
+							"lineAlpha": 0.98,
+							"lineColor": "#083050",
+							"lineThickness": 3,
+							"title": sClassificacao,
+							"valueField": "valor"
+						}
+					],
+					"guides": [],
+					"valueAxes": [
+						{
+							"id": "ValueAxis-1",
+							"minMaxMultiplier": 0,
+							"autoGridCount": false,
+							"minorTickLength": 3,
+							"title": "(R$)",
+							"titleColor": "#000000",
+							"titleRotation": -90
+						}
+					],
+					"allLabels": [],
+					"balloon": {},
+					"legend": {
+						"enabled": true,
+						"useGraphSettings": true
+					},
+					"titles": [
+						{
+							"alpha": 0.99,
+							"color": "#083050",
+							"id": "Title-1",
+							"size": 13,
+							"text": sOrigem
+						}
+					],
+					"dataProvider": dataprovider
+				};
+
+			AmCharts.makeChart("chartdiv",parametros);
+        }
+        onChange();
+		</script>
+	</head>
+	<body>
+        <table><tr><td>
+            <div class="formbuilder-select form-group field-classificacaoDespesa">
+                <label for="classificacaoDespesa" class="formbuilder-select-label">Classificação da Despesa</label>
+                <select class="form-control" name="classificacaoDespesa" id="classificacaoDespesa" onchange="onChange()">
+                    <option value="Despesa Autorizada Inicial" selected = "true">Despesa Autorizada Inicial</option>
+                    <option value="Despesa Autorizada Final">Despesa Autorizada Final</option>
+                    <option value="Poder de Gasto">Poder de Gasto</option>
+                    <option value="Despesa Empenhada">Despesa Empenhada</option>
+                    <option value="Despesa Liquidada">Despesa Liquidada</option>
+                    <option value="Despesa Paga">Despesa Paga</option>
+                </select>
+            </div></td><td>
+            <div class="formbuilder-select form-group field-select-1661519888957">
+                <label for="select-1661519888957" class="formbuilder-select-label">Origem da Despesa</label>
+                <select class="form-control" name="select-1661519888957" id="origemDespesa" onchange="onChange()">
+                    <option value="Total" selected = "true">Total</option>
+                    <option value="Gabinete">Gabinete</option>
+                    <option value="1ª">1ª CRE</option>
+                    <option value="2ª">2ª CRE</option>
+                    <option value="3ª">3ª CRE</option>
+                    <option value="4ª">4ª CRE</option>
+                    <option value="5ª">5ª CRE</option>
+                    <option value="6ª">6ª CRE</option>
+                    <option value="7ª">7ª CRE</option>
+                    <option value="8ª">8ª CRE</option>
+                    <option value="9ª">9ª CRE</option>
+                    <option value="10ª">10ª CRE</option>
+                    <option value="11ª">11ª CRE</option>
+                    <option value="Ed.Física na Ed.Básica">Ed.Física na Ed.Básica</option>
+    
+                </select>
+            </div></td></tr><tr><td>
+            <div class="formbuilder-checkbox-group form-group field-checkbox-group-1661519957527">
+                <label for="checkbox-group-1661519957527" class="formbuilder-checkbox-group-label"></label>
+                <div class="checkbox-group">
+                    <div class="formbuilder-checkbox">
+                        <input name="checkbox-group-1661519957527[]" access="false" id="chkMilhares" value="option-1" type="checkbox"  onchange="onChange()">
+                        <label for="checkbox-group-1661519957527-0">em milhares de Reais</label>
+                    </div>
+                </div>
+            </div></td></tr>
+        </table>        
+		<div id="chartdiv" style="width: 100%; height: 400px; background-color: #FFFFFF;" ></div>
+	</body>
+</html>
