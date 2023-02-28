@@ -6,8 +6,7 @@
 		
 		<!-- amCharts javascript sources -->
 		<script type="text/javascript" src="https://www.amcharts.com/lib/3/amcharts.js"></script>
-		<script type="text/javascript" src="https://cdn.amcharts.com/lib/3/serial.js"></script>
-		
+		<script type="text/javascript" src="https://cdn.amcharts.com/lib/3/serial.js"></script>		
 
 		<!-- amCharts javascript code -->
 		<script type="text/javascript">
@@ -1064,9 +1063,21 @@ valores =  [
 					],
 					"dataProvider": dataprovider
 				};
-
+			AmCharts.clear();
 			AmCharts.makeChart("chartdiv",parametros);
-        }
+			AmCharts.charts[0].autoDisplay = true;
+			//AmCharts.charts[0].handleResize();
+			//AmCharts.charts[0].invalidateSize();
+			//AmCharts.charts[0].validateSize();
+			//AmCharts.charts[0].validateData();
+			//AmCharts.charts[0].animateAgain();
+			//document.body.style.overflow = 'hidden';
+			//setTimeout(() => {
+//				document.body.style.overflow = 'visible';
+			//}, 500);
+			//document.getElementById('chartdiv').style.display = 'none';
+			//document.getElementById('chartdiv').style.display = 'block';			
+			}
         onChange();
 		</script>
 	</head>
